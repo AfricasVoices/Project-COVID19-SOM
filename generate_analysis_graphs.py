@@ -1,9 +1,10 @@
 import argparse
-import glob
 import json
 from collections import OrderedDict
+from glob import glob
 
-import altair
+
+import plotly.express as px
 from core_data_modules.cleaners import Codes
 from core_data_modules.logging import Logger
 from core_data_modules.traced_data.io import TracedDataJsonIO
