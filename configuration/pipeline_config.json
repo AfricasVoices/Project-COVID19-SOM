@@ -1,0 +1,57 @@
+{
+  "PipelineName": "COVID19_SOM",
+  "RawDataSources": [
+    {
+      "SourceType": "RapidPro",
+      "Domain": "textit.in",
+      "TokenFileURL": "gs://avf-credentials/imaqal-text-it-token.txt",
+      "ContactsFileName": "covid19_som_contacts",
+      "ActivationFlowNames": [
+        "covid19_som_s01e01_activation"
+      ],
+      "SurveyFlowNames": [
+        "imaqal_demog"
+      ],
+      "TestContactUUIDs": [
+        "fad44f22-235a-4821-9780-dfef09076fe1",
+        "3903ad8e-284e-48a0-881b-89c0b06b9334",
+        "45939459-e4d5-4ad6-8650-3e7134b9a035"
+      ]
+    }
+  ],
+  "PhoneNumberUuidTable": {
+    "FirebaseCredentialsFileURL": "gs://avf-credentials/avf-id-infrastructure-firebase-adminsdk-6xps8-b9173f2bfd.json",
+    "TableName": "IMAQAL"
+  },
+  "RapidProKeyRemappings": [
+    {"RapidProKey": "avf_phone_id", "PipelineKey": "uid"},
+
+    {"RapidProKey": "Rqa_S01E01 (Text) - covid19_som_s01e01_activation", "PipelineKey": "rqa_s01e01_raw", "IsActivationMessage": true},
+    {"RapidProKey": "Rqa_S01E01 (Run ID) - covid19_som_s01e01_activation", "PipelineKey": "rqa_s01e01_run_id"},
+    {"RapidProKey": "Rqa_S01E01 (Time) - covid19_som_s01e01_activation", "PipelineKey": "sent_on"},
+
+    {"RapidProKey": "Gender (Value) - imaqal_demog", "PipelineKey": "gender_raw"},
+    {"RapidProKey": "Gender (Time) - imaqal_demog", "PipelineKey": "gender_time"},
+    {"RapidProKey": "Age (Value) - imaqal_demog", "PipelineKey": "age_raw"},
+    {"RapidProKey": "Age (Time) - imaqal_demog", "PipelineKey": "age_time"},
+    {"RapidProKey": "Recently_Displaced (Value) - imaqal_demog", "PipelineKey": "recently_displaced_raw"},
+    {"RapidProKey": "Recently_Displaced (Time) - imaqal_demog", "PipelineKey": "recently_displaced_time"},
+    {"RapidProKey": "Household_Language (Value) - imaqal_demog", "PipelineKey": "household_language_raw"},
+    {"RapidProKey": "Household_Language (Time) - imaqal_demog", "PipelineKey": "household_language_time"},
+    {"RapidProKey": "District (Value) - imaqal_demog", "PipelineKey": "location_raw"},
+    {"RapidProKey": "District (Time) - imaqal_demog", "PipelineKey": "location_time"}
+  ],
+  "ProjectStartDate": "2020-03-01T00:00:00+03:00",
+  "ProjectEndDate": "2100-01-01T00:00:00+03:00",
+  "FilterTestMessages": true,
+  "MoveWSMessages": false,
+  "DriveUpload": {
+    "DriveCredentialsFileURL": "gs://avf-credentials/pipeline-runner-service-acct-avf-data-core-64cc71459fe7.json",
+    "ProductionUploadPath": "covid19_som_analysis_outputs/covid19_som_production.csv",
+    "MessagesUploadPath": "covid19_som_analysis_outputs/covid19_som_messages.csv",
+    "IndividualsUploadPath": "covid19_som_analysis_outputs/covid19_som_individuals.csv",
+    "AnalysisGraphsDir": "covid19_som_analysis_outputs/covid19_som_automated_analysis"
+  },
+  "MemoryProfileUploadURLPrefix": "gs://avf-pipeline-logs-performance-nearline/2020/COVID19_SOM/memory-",
+  "DataArchiveUploadURLPrefix": "gs://pipeline-execution-backup-archive/2020/COVID19_SOM/data-"
+}
