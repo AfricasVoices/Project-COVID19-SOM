@@ -1,0 +1,975 @@
+{
+  "SchemeID": "Scheme-5292e8fb",
+  "Name": "Somalia District",
+  "Version": "0.0.0.1",
+  "Codes": [
+    {
+      "CodeID": "code-E-720cdb66",
+      "CodeType": "Meta",
+      "MetaCode": "escalate",
+      "DisplayText": "meta: ESCALATE",
+      "NumericValue": -100080,
+      "StringValue": "escalate",
+      "VisibleInCoda": true,
+      "Shortcut": "e"
+    },
+    {
+      "StringValue": "adan yabaal",
+      "DisplayText": "adan yabaal",
+      "VisibleInCoda": true,
+      "NumericValue": 1,
+      "CodeID": "code-acc06b14",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "adan yabaal"
+      ]
+    },
+    {
+      "NumericValue": 2,
+      "CodeID": "code-99f80d95",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "afgooye"
+      ],
+      "StringValue": "afgooye",
+      "DisplayText": "afgooye",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-a716e317",
+      "NumericValue": 3,
+      "MatchValues": [
+        "afmadow"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "afmadow",
+      "DisplayText": "afmadow",
+      "VisibleInCoda": true
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 4,
+      "CodeID": "code-a6284186",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "baardheere"
+      ],
+      "StringValue": "baardheere",
+      "DisplayText": "baardheere"
+    },
+    {
+      "StringValue": "badhaadhe",
+      "DisplayText": "badhaadhe",
+      "VisibleInCoda": true,
+      "NumericValue": 5,
+      "CodeID": "code-eaf4bef5",
+      "MatchValues": [
+        "badhaadhe"
+      ],
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "baidoa",
+      "DisplayText": "baidoa",
+      "VisibleInCoda": true,
+      "NumericValue": 6,
+      "CodeID": "code-208448a6",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "baidoa"
+      ]
+    },
+    {
+      "NumericValue": 7,
+      "CodeID": "code-779a3d3f",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "baki"
+      ],
+      "StringValue": "baki",
+      "DisplayText": "baki",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-36520d40",
+      "NumericValue": 8,
+      "MatchValues": [
+        "balcad"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "balcad",
+      "DisplayText": "balcad",
+      "VisibleInCoda": true
+    },
+    {
+      "StringValue": "bandarbayla",
+      "DisplayText": "bandarbayla",
+      "VisibleInCoda": true,
+      "NumericValue": 9,
+      "CodeID": "code-78e2f093",
+      "MatchValues": [
+        "bandarbayla"
+      ],
+      "CodeType": "Normal"
+    },
+    {
+      "NumericValue": 10,
+      "CodeID": "code-d5431931",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "baraawe"
+      ],
+      "StringValue": "baraawe",
+      "DisplayText": "baraawe",
+      "VisibleInCoda": true
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 11,
+      "CodeID": "code-a408a571",
+      "MatchValues": [
+        "belet weyne"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "belet weyne",
+      "DisplayText": "belet weyne"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 12,
+      "CodeID": "code-97060a6b",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "belet xaawo"
+      ],
+      "StringValue": "belet xaawo",
+      "DisplayText": "belet xaawo"
+    },
+    {
+      "DisplayText": "berbera",
+      "VisibleInCoda": true,
+      "NumericValue": 13,
+      "CodeID": "code-0fd51f04",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "berbera"
+      ],
+      "StringValue": "berbera"
+    },
+    {
+      "NumericValue": 14,
+      "CodeID": "code-31269732",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "borama"
+      ],
+      "StringValue": "borama",
+      "DisplayText": "borama",
+      "VisibleInCoda": true
+    },
+    {
+      "NumericValue": 15,
+      "CodeID": "code-d65cb0c1",
+      "MatchValues": [
+        "bossaso"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "bossaso",
+      "DisplayText": "bossaso",
+      "VisibleInCoda": true
+    },
+    {
+      "DisplayText": "bu'aale",
+      "VisibleInCoda": true,
+      "CodeID": "code-6018057d",
+      "NumericValue": 16,
+      "MatchValues": [
+        "bu'aale"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "bu'aale"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 17,
+      "CodeID": "code-680f7c83",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "bulo burto"
+      ],
+      "StringValue": "bulo burto",
+      "DisplayText": "bulo burto"
+    },
+    {
+      "VisibleInCoda": true,
+      "CodeID": "code-ce068ef6",
+      "NumericValue": 18,
+      "MatchValues": [
+        "burco"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "burco",
+      "DisplayText": "burco"
+    },
+    {
+      "DisplayText": "burtinle",
+      "VisibleInCoda": true,
+      "CodeID": "code-9a9fdf9f",
+      "NumericValue": 19,
+      "MatchValues": [
+        "burtinle"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "burtinle"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 20,
+      "CodeID": "code-253daee4",
+      "MatchValues": [
+        "buuhoodle"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "buuhoodle",
+      "DisplayText": "buuhoodle"
+    },
+    {
+      "NumericValue": 21,
+      "CodeID": "code-3ffd2257",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "buur hakaba"
+      ],
+      "StringValue": "buur hakaba",
+      "DisplayText": "buur hakaba",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-a28e06ac",
+      "NumericValue": 22,
+      "MatchValues": [
+        "cabudwaaq"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "cabudwaaq",
+      "DisplayText": "cabudwaaq",
+      "VisibleInCoda": true
+    },
+    {
+      "StringValue": "cadaado",
+      "DisplayText": "cadaado",
+      "VisibleInCoda": true,
+      "NumericValue": 23,
+      "CodeID": "code-ac4ddb4e",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "cadaado"
+      ]
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 24,
+      "CodeID": "code-497158fa",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "cadale"
+      ],
+      "StringValue": "cadale",
+      "DisplayText": "cadale"
+    },
+    {
+      "NumericValue": 25,
+      "CodeID": "code-a1364b59",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "caluula"
+      ],
+      "StringValue": "caluula",
+      "DisplayText": "caluula",
+      "VisibleInCoda": true
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 26,
+      "CodeID": "code-72e08200",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "caynabo"
+      ],
+      "StringValue": "caynabo",
+      "DisplayText": "caynabo"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 27,
+      "CodeID": "code-2d58a9b8",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "ceel afweyn"
+      ],
+      "StringValue": "ceel afweyn",
+      "DisplayText": "ceel afweyn"
+    },
+    {
+      "StringValue": "ceel barde",
+      "DisplayText": "ceel barde",
+      "VisibleInCoda": true,
+      "CodeID": "code-1878985c",
+      "NumericValue": 28,
+      "MatchValues": [
+        "ceel barde"
+      ],
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "ceel buur",
+      "DisplayText": "ceel buur",
+      "VisibleInCoda": true,
+      "NumericValue": 29,
+      "CodeID": "code-2d35116a",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "ceel buur"
+      ]
+    },
+    {
+      "NumericValue": 30,
+      "CodeID": "code-3ece35eb",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "ceel dheer"
+      ],
+      "StringValue": "ceel dheer",
+      "DisplayText": "ceel dheer",
+      "VisibleInCoda": true
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 31,
+      "CodeID": "code-aaf4d2e6",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "ceel waaq"
+      ],
+      "StringValue": "ceel waaq",
+      "DisplayText": "ceel waaq"
+    },
+    {
+      "DisplayText": "ceerigaabo",
+      "VisibleInCoda": true,
+      "NumericValue": 32,
+      "CodeID": "code-6b541d8e",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "ceerigaabo"
+      ],
+      "StringValue": "ceerigaabo"
+    },
+    {
+      "StringValue": "dhuusamarreeb",
+      "DisplayText": "dhuusamarreeb",
+      "VisibleInCoda": true,
+      "NumericValue": 33,
+      "CodeID": "code-38821e5d",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "dhuusamarreeb"
+      ]
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 34,
+      "CodeID": "code-9c11e9ce",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "diinsoor"
+      ],
+      "StringValue": "diinsoor",
+      "DisplayText": "diinsoor"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 35,
+      "CodeID": "code-355a2ec6",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "doolow"
+      ],
+      "StringValue": "doolow",
+      "DisplayText": "doolow"
+    },
+    {
+      "DisplayText": "eyl",
+      "VisibleInCoda": true,
+      "NumericValue": 36,
+      "CodeID": "code-9a0af590",
+      "MatchValues": [
+        "eyl"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "eyl"
+    },
+    {
+      "NumericValue": 37,
+      "CodeID": "code-4586b218",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "gaalkacyo"
+      ],
+      "StringValue": "gaalkacyo",
+      "DisplayText": "gaalkacyo",
+      "VisibleInCoda": true
+    },
+    {
+      "DisplayText": "galdogob",
+      "VisibleInCoda": true,
+      "NumericValue": 38,
+      "CodeID": "code-7d1549a8",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "galdogob"
+      ],
+      "StringValue": "galdogob"
+    },
+    {
+      "NumericValue": 39,
+      "CodeID": "code-2006f966",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "garbahaarey"
+      ],
+      "StringValue": "garbahaarey",
+      "DisplayText": "garbahaarey",
+      "VisibleInCoda": true
+    },
+    {
+      "StringValue": "garowe",
+      "DisplayText": "garowe",
+      "VisibleInCoda": true,
+      "NumericValue": 40,
+      "CodeID": "code-fdb62e36",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "garowe"
+      ]
+    },
+    {
+      "NumericValue": 41,
+      "CodeID": "code-0fdbac5a",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "gebiley"
+      ],
+      "StringValue": "gebiley",
+      "DisplayText": "gebiley",
+      "VisibleInCoda": true
+    },
+    {
+      "DisplayText": "hargeysa",
+      "VisibleInCoda": true,
+      "NumericValue": 42,
+      "CodeID": "code-6d47f6ed",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "hargeysa"
+      ],
+      "StringValue": "hargeysa"
+    },
+    {
+      "StringValue": "hobyo",
+      "DisplayText": "hobyo",
+      "VisibleInCoda": true,
+      "NumericValue": 43,
+      "CodeID": "code-6f638555",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "hobyo"
+      ]
+    },
+    {
+      "StringValue": "iskushuban",
+      "DisplayText": "iskushuban",
+      "VisibleInCoda": true,
+      "NumericValue": 44,
+      "CodeID": "code-d738bdb1",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "iskushuban"
+      ]
+    },
+    {
+      "DisplayText": "jalalaqsi",
+      "VisibleInCoda": true,
+      "NumericValue": 45,
+      "CodeID": "code-9ba0cc74",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "jalalaqsi"
+      ],
+      "StringValue": "jalalaqsi"
+    },
+    {
+      "DisplayText": "jamaame",
+      "VisibleInCoda": true,
+      "NumericValue": 46,
+      "CodeID": "code-32df3582",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "jamaame"
+      ],
+      "StringValue": "jamaame"
+    },
+    {
+      "DisplayText": "jariiban",
+      "VisibleInCoda": true,
+      "NumericValue": 47,
+      "CodeID": "code-35b251ad",
+      "MatchValues": [
+        "jariiban"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "jariiban"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 48,
+      "CodeID": "code-8210ad81",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "jilib"
+      ],
+      "StringValue": "jilib",
+      "DisplayText": "jilib"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 49,
+      "CodeID": "code-2b4462d4",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "jowhar"
+      ],
+      "StringValue": "jowhar",
+      "DisplayText": "jowhar"
+    },
+    {
+      "NumericValue": 50,
+      "CodeID": "code-6294f98f",
+      "MatchValues": [
+        "kismayo"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "kismayo",
+      "DisplayText": "kismayo",
+      "VisibleInCoda": true
+    },
+    {
+      "StringValue": "kurtunwaarey",
+      "DisplayText": "kurtunwaarey",
+      "VisibleInCoda": true,
+      "CodeID": "code-3b9ff423",
+      "NumericValue": 51,
+      "MatchValues": [
+        "kurtunwaarey"
+      ],
+      "CodeType": "Normal"
+    },
+    {
+      "DisplayText": "laas caanood",
+      "VisibleInCoda": true,
+      "NumericValue": 52,
+      "CodeID": "code-f66748d8",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "laas caanood"
+      ],
+      "StringValue": "laas caanood"
+    },
+    {
+      "NumericValue": 53,
+      "CodeID": "code-bff850eb",
+      "MatchValues": [
+        "lasqooray"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "lasqooray",
+      "DisplayText": "lasqooray",
+      "VisibleInCoda": true
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 54,
+      "CodeID": "code-7dabd8d4",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "lughaye"
+      ],
+      "StringValue": "lughaye",
+      "DisplayText": "lughaye"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 55,
+      "CodeID": "code-35009ee0",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "luuq"
+      ],
+      "StringValue": "luuq",
+      "DisplayText": "luuq"
+    },
+    {
+      "DisplayText": "marka",
+      "VisibleInCoda": true,
+      "NumericValue": 56,
+      "CodeID": "code-a241e816",
+      "MatchValues": [
+        "marka"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "marka"
+    },
+    {
+      "DisplayText": "mogadishu",
+      "VisibleInCoda": true,
+      "NumericValue": 57,
+      "CodeID": "code-2e6192c8",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "mogadishu"
+      ],
+      "StringValue": "mogadishu"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 58,
+      "CodeID": "code-b90949c4",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "owdweyne"
+      ],
+      "StringValue": "owdweyne",
+      "DisplayText": "owdweyne"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 59,
+      "CodeID": "code-d729dbd8",
+      "MatchValues": [
+        "qandala"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "qandala",
+      "DisplayText": "qandala"
+    },
+    {
+      "VisibleInCoda": true,
+      "CodeID": "code-ea7d452b",
+      "NumericValue": 60,
+      "MatchValues": [
+        "qansax dheere"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "qansax dheere",
+      "DisplayText": "qansax dheere"
+    },
+    {
+      "NumericValue": 61,
+      "CodeID": "code-28ad8e85",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "qardho"
+      ],
+      "StringValue": "qardho",
+      "DisplayText": "qardho",
+      "VisibleInCoda": true
+    },
+    {
+      "DisplayText": "qoryooley",
+      "VisibleInCoda": true,
+      "NumericValue": 62,
+      "CodeID": "code-91837fee",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "qoryooley"
+      ],
+      "StringValue": "qoryooley"
+    },
+    {
+      "StringValue": "rab dhuure",
+      "DisplayText": "rab dhuure",
+      "VisibleInCoda": true,
+      "NumericValue": 63,
+      "CodeID": "code-bba91f81",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "rab dhuure"
+      ]
+    },
+    {
+      "StringValue": "saakow",
+      "DisplayText": "saakow",
+      "VisibleInCoda": true,
+      "NumericValue": 64,
+      "CodeID": "code-84d55e34",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "saakow"
+      ]
+    },
+    {
+      "StringValue": "sablaale",
+      "DisplayText": "sablaale",
+      "VisibleInCoda": true,
+      "NumericValue": 65,
+      "CodeID": "code-af8f7cc3",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "sablaale"
+      ]
+    },
+    {
+      "NumericValue": 66,
+      "CodeID": "code-6e2a9fb5",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "sheikh"
+      ],
+      "StringValue": "sheikh",
+      "DisplayText": "sheikh",
+      "VisibleInCoda": true
+    },
+    {
+      "NumericValue": 67,
+      "CodeID": "code-5db026ee",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "taleex"
+      ],
+      "StringValue": "taleex",
+      "DisplayText": "taleex",
+      "VisibleInCoda": true
+    },
+    {
+      "NumericValue": 68,
+      "CodeID": "code-e3d43b38",
+      "MatchValues": [
+        "tayeeglow"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "tayeeglow",
+      "DisplayText": "tayeeglow",
+      "VisibleInCoda": true
+    },
+    {
+      "StringValue": "waajid",
+      "DisplayText": "waajid",
+      "VisibleInCoda": true,
+      "NumericValue": 69,
+      "CodeID": "code-d05f8e5a",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "waajid"
+      ]
+    },
+    {
+      "NumericValue": 70,
+      "CodeID": "code-b706ce43",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "wanla weyn"
+      ],
+      "StringValue": "wanla weyn",
+      "DisplayText": "wanla weyn",
+      "VisibleInCoda": true
+    },
+    {
+      "StringValue": "xarardheere",
+      "DisplayText": "xarardheere",
+      "VisibleInCoda": true,
+      "NumericValue": 71,
+      "CodeID": "code-ca5bde30",
+      "MatchValues": [
+        "xarardheere"
+      ],
+      "CodeType": "Normal"
+    },
+    {
+      "DisplayText": "xudun",
+      "VisibleInCoda": true,
+      "NumericValue": 72,
+      "CodeID": "code-a0f5e712",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "xudun"
+      ],
+      "StringValue": "xudun"
+    },
+    {
+      "DisplayText": "xudur",
+      "VisibleInCoda": true,
+      "NumericValue": 73,
+      "CodeID": "code-24fb7c50",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "xudur"
+      ],
+      "StringValue": "xudur"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 74,
+      "CodeID": "code-26d99b64",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "zeylac"
+      ],
+      "StringValue": "zeylac",
+      "DisplayText": "zeylac"
+    },
+    {
+      "NumericValue": -10,
+      "CodeID": "code-NA-f93d3eb7",
+      "CodeType": "Control",
+      "StringValue": "NA",
+      "ControlCode": "NA",
+      "DisplayText": "NA (missing)",
+      "VisibleInCoda": false
+    },
+    {
+      "VisibleInCoda": false,
+      "NumericValue": -20,
+      "CodeID": "code-NS-2c11b7c9",
+      "CodeType": "Control",
+      "StringValue": "NS",
+      "ControlCode": "NS",
+      "DisplayText": "NS (skip)"
+    },
+    {
+      "ControlCode": "NC",
+      "DisplayText": "NC (not coded)",
+      "VisibleInCoda": true,
+      "NumericValue": -30,
+      "CodeID": "code-NC-42f1d983",
+      "CodeType": "Control",
+      "StringValue": "NC"
+    },
+    {
+      "VisibleInCoda": false,
+      "NumericValue": -40,
+      "CodeID": "code-NR-5e3eee23",
+      "CodeType": "Control",
+      "StringValue": "NR",
+      "ControlCode": "NR",
+      "DisplayText": "NR (not reviewed)"
+    },
+    {
+      "NumericValue": -50,
+      "CodeID": "code-NIC-99631cb8",
+      "CodeType": "Control",
+      "StringValue": "NIC",
+      "ControlCode": "NIC",
+      "DisplayText": "NIC (not internally consistent)",
+      "VisibleInCoda": false
+    },
+    {
+      "NumericValue": -90,
+      "CodeID": "code-STOP-08b832a8",
+      "CodeType": "Control",
+      "StringValue": "STOP",
+      "ControlCode": "STOP",
+      "DisplayText": "STOP",
+      "VisibleInCoda": true
+    },
+    {
+      "NumericValue": -100,
+      "CodeID": "code-WS-adb25603b7af",
+      "CodeType": "Control",
+      "StringValue": "WS",
+      "ControlCode": "WS",
+      "DisplayText": "WS (wrong scheme)",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-CE-016c1e22",
+      "CodeType": "Control",
+      "ControlCode": "CE",
+      "DisplayText": "CE (coding error)",
+      "NumericValue": -110,
+      "StringValue": "CE",
+      "VisibleInCoda": false
+    },
+    {
+      "CodeID": "code-PB-a434a800",
+      "CodeType": "Meta",
+      "MetaCode": "push_back",
+      "DisplayText": "meta: push back",
+      "NumericValue": -100000,
+      "StringValue": "push_back",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-SQ-5e8f0122",
+      "CodeType": "Meta",
+      "MetaCode": "showtime_question",
+      "DisplayText": "meta: showtime question",
+      "NumericValue": -100030,
+      "StringValue": "showtime_question",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-Q-a5d3700d",
+      "CodeType": "Meta",
+      "MetaCode": "question",
+      "DisplayText": "meta: question",
+      "NumericValue": -100010,
+      "StringValue": "question",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-G-97cb3199",
+      "CodeType": "Meta",
+      "MetaCode": "greeting",
+      "DisplayText": "meta: greeting",
+      "NumericValue": -100020,
+      "StringValue": "greeting",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-OI-c5f1d054",
+      "CodeType": "Meta",
+      "MetaCode": "opt-in",
+      "DisplayText": "meta: opt-in",
+      "NumericValue": -100040,
+      "StringValue": "opt_in",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-SC-a3a065bc",
+      "CodeType": "Meta",
+      "MetaCode": "similar_content",
+      "DisplayText": "meta: similar content",
+      "NumericValue": -100050,
+      "StringValue": "similar_content",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-PI-83b90d32",
+      "CodeType": "Meta",
+      "MetaCode": "participation_incentive",
+      "DisplayText": "meta: participation incentive",
+      "NumericValue": -100060,
+      "StringValue": "participation_incentive",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-EC-3a704f5b",
+      "CodeType": "Meta",
+      "MetaCode": "exclusion_complaint",
+      "DisplayText": "meta: exclusion complaint",
+      "NumericValue": -100070,
+      "StringValue": "exclusion_complaint",
+      "VisibleInCoda": true
+    }
+  ]
+}
