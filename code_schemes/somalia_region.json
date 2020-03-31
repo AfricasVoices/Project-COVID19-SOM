@@ -1,0 +1,359 @@
+{
+  "SchemeID": "Scheme-644e3296",
+  "Name": "Somalia Region",
+  "Version": "0.0.0.1",
+  "Codes": [
+    {
+      "CodeID": "code-E-720cdb66",
+      "CodeType": "Meta",
+      "MetaCode": "escalate",
+      "DisplayText": "meta: ESCALATE",
+      "NumericValue": -100080,
+      "StringValue": "escalate",
+      "VisibleInCoda": true,
+      "Shortcut": "e"
+    },
+    {
+      "NumericValue": 1,
+      "CodeID": "code-8af5ec4f",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "awdal"
+      ],
+      "StringValue": "awdal",
+      "DisplayText": "awdal",
+      "VisibleInCoda": true
+    },
+    {
+      "StringValue": "bakool",
+      "DisplayText": "bakool",
+      "VisibleInCoda": true,
+      "NumericValue": 2,
+      "CodeID": "code-44c06c41",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "bakool"
+      ]
+    },
+    {
+      "NumericValue": 3,
+      "CodeID": "code-74bcbe18",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "banadir"
+      ],
+      "StringValue": "banadir",
+      "DisplayText": "banadir",
+      "VisibleInCoda": true
+    },
+    {
+      "DisplayText": "bari",
+      "VisibleInCoda": true,
+      "NumericValue": 4,
+      "CodeID": "code-49607fe4",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "bari"
+      ],
+      "StringValue": "bari"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 5,
+      "CodeID": "code-2870c0ee",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "bay"
+      ],
+      "StringValue": "bay",
+      "DisplayText": "bay"
+    },
+    {
+      "DisplayText": "galgaduud",
+      "VisibleInCoda": true,
+      "NumericValue": 6,
+      "CodeID": "code-53697dd0",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "galgaduud"
+      ],
+      "StringValue": "galgaduud"
+    },
+    {
+      "DisplayText": "gedo",
+      "VisibleInCoda": true,
+      "NumericValue": 7,
+      "CodeID": "code-000c5297",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "gedo"
+      ],
+      "StringValue": "gedo"
+    },
+    {
+      "StringValue": "hiraan",
+      "DisplayText": "hiraan",
+      "VisibleInCoda": true,
+      "NumericValue": 8,
+      "CodeID": "code-12d31795",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "hiraan"
+      ]
+    },
+    {
+      "StringValue": "lower juba",
+      "DisplayText": "lower juba",
+      "VisibleInCoda": true,
+      "CodeID": "code-81b18fce",
+      "NumericValue": 9,
+      "MatchValues": [
+        "lower juba"
+      ],
+      "CodeType": "Normal"
+    },
+    {
+      "NumericValue": 10,
+      "CodeID": "code-5eaa3b3e",
+      "MatchValues": [
+        "lower shabelle"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "lower shabelle",
+      "DisplayText": "lower shabelle",
+      "VisibleInCoda": true
+    },
+    {
+      "StringValue": "middle juba",
+      "DisplayText": "middle juba",
+      "VisibleInCoda": true,
+      "NumericValue": 11,
+      "CodeID": "code-fbac6497",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "middle juba"
+      ]
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 12,
+      "CodeID": "code-74428246",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "middle shabelle"
+      ],
+      "StringValue": "middle shabelle",
+      "DisplayText": "middle shabelle"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 13,
+      "CodeID": "code-0c909391",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "mudug"
+      ],
+      "StringValue": "mudug",
+      "DisplayText": "mudug"
+    },
+    {
+      "CodeID": "code-1b592fef",
+      "NumericValue": 14,
+      "MatchValues": [
+        "nugaal"
+      ],
+      "CodeType": "Normal",
+      "StringValue": "nugaal",
+      "DisplayText": "nugaal",
+      "VisibleInCoda": true
+    },
+    {
+      "NumericValue": 15,
+      "CodeID": "code-e5f63151",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "sanaag"
+      ],
+      "StringValue": "sanaag",
+      "DisplayText": "sanaag",
+      "VisibleInCoda": true
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 16,
+      "CodeID": "code-b15551e9",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "sool"
+      ],
+      "StringValue": "sool",
+      "DisplayText": "sool"
+    },
+    {
+      "DisplayText": "togdheer",
+      "VisibleInCoda": true,
+      "NumericValue": 17,
+      "CodeID": "code-cf0e0f33",
+      "CodeType": "Normal",
+      "MatchValues": [
+        "togdheer"
+      ],
+      "StringValue": "togdheer"
+    },
+    {
+      "StringValue": "woqooyi galbeed",
+      "DisplayText": "woqooyi galbeed",
+      "VisibleInCoda": true,
+      "CodeID": "code-98931bb8",
+      "NumericValue": 18,
+      "MatchValues": [
+        "woqooyi galbeed"
+      ],
+      "CodeType": "Normal"
+    },
+    {
+      "NumericValue": -10,
+      "CodeID": "code-NA-f93d3eb7",
+      "CodeType": "Control",
+      "StringValue": "NA",
+      "ControlCode": "NA",
+      "DisplayText": "NA (missing)",
+      "VisibleInCoda": false
+    },
+    {
+      "VisibleInCoda": false,
+      "CodeID": "code-NS-2c11b7c9",
+      "NumericValue": -20,
+      "CodeType": "Control",
+      "StringValue": "NS",
+      "ControlCode": "NS",
+      "DisplayText": "NS (skip)"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": -30,
+      "CodeID": "code-NC-42f1d983",
+      "CodeType": "Control",
+      "StringValue": "NC",
+      "ControlCode": "NC",
+      "DisplayText": "NC (not coded)"
+    },
+    {
+      "VisibleInCoda": false,
+      "NumericValue": -40,
+      "CodeID": "code-NR-5e3eee23",
+      "CodeType": "Control",
+      "StringValue": "NR",
+      "ControlCode": "NR",
+      "DisplayText": "NR (not reviewed)"
+    },
+    {
+      "StringValue": "NIC",
+      "ControlCode": "NIC",
+      "DisplayText": "NIC (not internally consistent)",
+      "VisibleInCoda": false,
+      "NumericValue": -50,
+      "CodeID": "code-NIC-99631cb8",
+      "CodeType": "Control"
+    },
+    {
+      "StringValue": "STOP",
+      "ControlCode": "STOP",
+      "DisplayText": "STOP",
+      "VisibleInCoda": true,
+      "CodeID": "code-STOP-08b832a8",
+      "NumericValue": -90,
+      "CodeType": "Control"
+    },
+    {
+      "ControlCode": "WS",
+      "DisplayText": "WS (wrong scheme)",
+      "VisibleInCoda": true,
+      "NumericValue": -100,
+      "CodeID": "code-WS-adb25603b7af",
+      "CodeType": "Control",
+      "StringValue": "WS"
+    },
+    {
+      "CodeID": "code-CE-016c1e22",
+      "CodeType": "Control",
+      "ControlCode": "CE",
+      "DisplayText": "CE (coding error)",
+      "NumericValue": -110,
+      "StringValue": "CE",
+      "VisibleInCoda": false
+    },
+    {
+      "CodeID": "code-PB-a434a800",
+      "CodeType": "Meta",
+      "MetaCode": "push_back",
+      "DisplayText": "meta: push back",
+      "NumericValue": -100000,
+      "StringValue": "push_back",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-SQ-5e8f0122",
+      "CodeType": "Meta",
+      "MetaCode": "showtime_question",
+      "DisplayText": "meta: showtime question",
+      "NumericValue": -100030,
+      "StringValue": "showtime_question",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-Q-a5d3700d",
+      "CodeType": "Meta",
+      "MetaCode": "question",
+      "DisplayText": "meta: question",
+      "NumericValue": -100010,
+      "StringValue": "question",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-G-97cb3199",
+      "CodeType": "Meta",
+      "MetaCode": "greeting",
+      "DisplayText": "meta: greeting",
+      "NumericValue": -100020,
+      "StringValue": "greeting",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-OI-c5f1d054",
+      "CodeType": "Meta",
+      "MetaCode": "opt-in",
+      "DisplayText": "meta: opt-in",
+      "NumericValue": -100040,
+      "StringValue": "opt_in",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-SC-a3a065bc",
+      "CodeType": "Meta",
+      "MetaCode": "similar_content",
+      "DisplayText": "meta: similar content",
+      "NumericValue": -100050,
+      "StringValue": "similar_content",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-PI-83b90d32",
+      "CodeType": "Meta",
+      "MetaCode": "participation_incentive",
+      "DisplayText": "meta: participation incentive",
+      "NumericValue": -100060,
+      "StringValue": "participation_incentive",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-EC-3a704f5b",
+      "CodeType": "Meta",
+      "MetaCode": "exclusion_complaint",
+      "DisplayText": "meta: exclusion complaint",
+      "NumericValue": -100070,
+      "StringValue": "exclusion_complaint",
+      "VisibleInCoda": true
+    }
+  ]
+}
