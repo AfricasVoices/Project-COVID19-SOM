@@ -53,7 +53,7 @@ class PipelineConfiguration(object):
         CodingPlan(raw_field="rqa_s01e01_raw",
                    time_field="sent_on",
                    run_id_field="rqa_s01e01_run_id",
-                   coda_filename="s01e01.json",
+                   coda_filename="COVID19_SOM_s01e01.json",
                    icr_filename="s01e01.csv",
                    coding_configurations=[
                        CodingConfiguration(
