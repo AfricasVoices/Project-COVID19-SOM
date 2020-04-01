@@ -26,9 +26,9 @@
   "RapidProKeyRemappings": [
     {"RapidProKey": "avf_phone_id", "PipelineKey": "uid"},
 
-    {"RapidProKey": "Rqa_S01E01 (Text) - covid19_som_s01e01_activation", "PipelineKey": "rqa_s01e01_raw", "IsActivationMessage": true},
-    {"RapidProKey": "Rqa_S01E01 (Run ID) - covid19_som_s01e01_activation", "PipelineKey": "rqa_s01e01_run_id"},
-    {"RapidProKey": "Rqa_S01E01 (Time) - covid19_som_s01e01_activation", "PipelineKey": "sent_on"},
+    {"RapidProKey": "Covid19_Som_Rqa_S01E01 (Text) - covid19_som_s01e01_activation", "PipelineKey": "rqa_s01e01_raw", "IsActivationMessage": true},
+    {"RapidProKey": "Covid19_Som_Rqa_S01E01 (Run ID) - covid19_som_s01e01_activation", "PipelineKey": "rqa_s01e01_run_id"},
+    {"RapidProKey": "Covid19_Som_Rqa_S01E01 (Time) - covid19_som_s01e01_activation", "PipelineKey": "sent_on"},
 
     {"RapidProKey": "Gender (Value) - imaqal_demog", "PipelineKey": "gender_raw"},
     {"RapidProKey": "Gender (Time) - imaqal_demog", "PipelineKey": "gender_time"},
