@@ -83,8 +83,8 @@ if __name__ == "__main__":
     log.info("Computing the per-episode and per-season engagement counts...")
     engagement_counts = OrderedDict()  # of episode name to counts
     for plan in PipelineConfiguration.RQA_CODING_PLANS:
-        engagement_counts[plan.dataset_name] = {
-            "Episode": plan.dataset_name,
+        engagement_counts[plan.raw_field] = {
+            "Episode": plan.raw_field,
 
             "Total Messages": "-",  # Can't report this for individual weeks because the data has been overwritten with "STOP"
             "Total Messages with Opt-Ins": len(AnalysisUtils.filter_opt_ins(messages, CONSENT_WITHDRAWN_KEY, [plan])),
@@ -353,7 +353,7 @@ if __name__ == "__main__":
 
                 for msg in sample_messages:
                     samples.append({
-                        "Episode": plan.dataset_name,
+                        "Episode": plan.raw_field,
                         "Code Scheme": cc.code_scheme.name,
                         "Code": code_string_value,
                         "Sample Message": msg
