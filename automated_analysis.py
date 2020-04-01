@@ -15,9 +15,8 @@ from core_data_modules.util import IOUtils
 from storage.google_cloud import google_cloud_utils
 from storage.google_drive import drive_client_wrapper
 
-from configuration.code_schemes import CodeSchemes
 from src import AnalysisUtils
-from src.lib import PipelineConfiguration
+from src.lib import PipelineConfiguration, CodeSchemes
 from src.lib.pipeline_configuration import CodingModes
 
 log = Logger(__name__)
