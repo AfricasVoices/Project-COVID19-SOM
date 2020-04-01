@@ -15,9 +15,8 @@ from core_data_modules.util import IOUtils
 from storage.google_cloud import google_cloud_utils
 from storage.google_drive import drive_client_wrapper
 
-from configuration.code_schemes import CodeSchemes
 from src import AnalysisUtils
-from src.lib import PipelineConfiguration
+from src.lib import PipelineConfiguration, CodeSchemes
 from src.lib.pipeline_configuration import CodingModes
 
 log = Logger(__name__)
@@ -84,8 +83,8 @@ if __name__ == "__main__":
     log.info("Computing the per-episode and per-season engagement counts...")
     engagement_counts = OrderedDict()  # of episode name to counts
     for plan in PipelineConfiguration.RQA_CODING_PLANS:
-        engagement_counts[plan.dataset_name] = {
-            "Episode": plan.dataset_name,
+        engagement_counts[plan.raw_field] = {
+            "Episode": plan.raw_field,
 
             "Total Messages": "-",  # Can't report this for individual weeks because the data has been overwritten with "STOP"
             "Total Messages with Opt-Ins": len(AnalysisUtils.filter_opt_ins(messages, CONSENT_WITHDRAWN_KEY, [plan])),
@@ -146,7 +145,7 @@ if __name__ == "__main__":
     # Percentages are computed after excluding individuals who opted out.
     total_participants = len([td for td in individuals if td["consent_withdrawn"] == Codes.FALSE])
     for rp in repeat_participations.values():
-        rp["% of Individuals"] = round(rp["Number of Participants"] / total_participants * 100, 1)
+        rp["% of Participants"] = round(rp["Number of Participants"] / total_participants * 100, 1)
 
     # Export the participation frequency data to a csv
     with open(f"{output_dir}/repeat_participations.csv", "w") as f:
@@ -354,7 +353,7 @@ if __name__ == "__main__":
 
                 for msg in sample_messages:
                     samples.append({
-                        "Episode": plan.dataset_name,
+                        "Episode": plan.raw_field,
                         "Code Scheme": cc.code_scheme.name,
                         "Code": code_string_value,
                         "Sample Message": msg
