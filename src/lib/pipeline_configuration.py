@@ -92,7 +92,7 @@ class PipelineConfiguration(object):
     SURVEY_CODING_PLANS = [
         CodingPlan(raw_field="gender_raw",
                    time_field="gender_time",
-                   coda_filename="gender.json",
+                   coda_filename="IMAQAL_gender.json",
                    coding_configurations=[
                        CodingConfiguration(
                            coding_mode=CodingModes.SINGLE,
@@ -108,7 +108,7 @@ class PipelineConfiguration(object):
 
         CodingPlan(raw_field="age_raw",
                    time_field="age_time",
-                   coda_filename="age.json",
+                   coda_filename="IMAQAL_age.json",
                    coding_configurations=[
                        CodingConfiguration(
                            coding_mode=CodingModes.SINGLE,
@@ -132,7 +132,7 @@ class PipelineConfiguration(object):
 
         CodingPlan(raw_field="recently_displaced_raw",
                    time_field="recently_displaced_time",
-                   coda_filename="recently_displaced.json",
+                   coda_filename="IMAQAL_recently_displaced.json",
                    coding_configurations=[
                        CodingConfiguration(
                            coding_mode=CodingModes.SINGLE,
@@ -148,7 +148,7 @@ class PipelineConfiguration(object):
 
         CodingPlan(raw_field="household_language_raw",
                    time_field="household_language_time",
-                   coda_filename="household_language.json",
+                   coda_filename="IMAQAL_household_language.json",
                    coding_configurations=[
                        CodingConfiguration(
                            coding_mode=CodingModes.SINGLE,
@@ -163,7 +163,7 @@ class PipelineConfiguration(object):
 
         CodingPlan(raw_field="location_raw",
                    time_field="location_time",
-                   coda_filename="location.json",
+                   coda_filename="IMAQAL_location.json",
                    coding_configurations=[
                        CodingConfiguration(
                            coding_mode=CodingModes.SINGLE,
