@@ -18,7 +18,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ $# -ne 4 ]]; then
-    echo "Usage: ./5_generate_analysis_graphs.sh [--profile-cpu <cpu-profile-output-path>] <user> <google-cloud-credentials-file-path> <pipeline-configuration-file-path> <data-root>"
+    echo "Usage: ./5_automated_analysis [--profile-cpu <cpu-profile-output-path>] <user> <google-cloud-credentials-file-path> <pipeline-configuration-file-path> <data-root>"
     echo "Generates the analysis graphs using the traced data produced by 3_generate_outputs.sh"
     exit
 fi
@@ -31,7 +31,7 @@ DATA_ROOT=$4
 mkdir -p "$DATA_ROOT/Outputs"
 
 cd ..
-./docker-run-generate-analysis-graphs.sh ${CPU_PROFILE_ARG} \
+./docker-run-automated-analysis.sh ${CPU_PROFILE_ARG} \
   "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION_FILE_PATH" \
   "$DATA_ROOT/Outputs/messages_traced_data.jsonl" "$DATA_ROOT/Outputs/individuals_traced_data.jsonl" \
-  "$DATA_ROOT/Outputs/graphs/"
+  "$DATA_ROOT/Outputs/Automated Analysis/"

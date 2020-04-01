@@ -3,7 +3,7 @@
 set -e
 
 PROJECT_NAME="$(<configuration/docker_image_project_name.txt)"
-IMAGE_NAME=$PROJECT_NAME-generate-analysis-graphs
+IMAGE_NAME=$PROJECT_NAME-automated-analysis
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
@@ -24,7 +24,8 @@ done
 if [[ $# -ne 6 ]]; then
     echo "Usage: ./docker-run.sh
     [--profile-cpu <profile-output-path>]
-    <user> <google-cloud-credentials-file-path> <pipeline-configuration-file-path> <messages-traced-data> <individuals-traced-data> <output-dir>"
+    <user> <google-cloud-credentials-file-path> <pipeline-configuration-file-path> <messages-traced-data>
+    <individuals-traced-data> <output-dir>"
     exit
 fi
 
@@ -44,7 +45,7 @@ if [[ "$PROFILE_CPU" = true ]]; then
     PROFILE_CPU_CMD="-m pyinstrument -o /data/cpu.prof --renderer html --"
     SYS_PTRACE_CAPABILITY="--cap-add SYS_PTRACE"
 fi
-CMD="pipenv run python -u $PROFILE_CPU_CMD generate_analysis_graphs.py \
+CMD="pipenv run python -u $PROFILE_CPU_CMD automated_analysis.py \
     \"$USER\" /credentials/google-cloud-credentials.json /data/pipeline_configuration.json \
     /data/messages-traced-data.jsonl /data/individuals-traced-data.jsonl /data/output-graphs
 "
