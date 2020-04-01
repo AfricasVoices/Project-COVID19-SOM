@@ -13,6 +13,7 @@ class CodeSchemes(object):
     S01E01 = _open_scheme("s01e01.json")
 
     AGE = _open_scheme("age.json")
+    AGE_CATEGORY = _open_scheme("age_category.json")
     RECENTLY_DISPLACED = _open_scheme("recently_displaced.json")
     HOUSEHOLD_LANGUAGE = _open_scheme("household_language.json")
     GENDER = _open_scheme("gender.json")

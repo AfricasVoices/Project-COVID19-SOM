@@ -50,8 +50,7 @@ RUN pipenv sync
 
 # Copy the rest of the project
 ADD code_schemes/*.json /app/code_schemes/
-ADD geojson/* /app/geojson/
-ADD configuration/*.py /app/configuration/
+ADD configuration/ /app/configuration/
 ADD src /app/src
 ADD fetch_raw_data.py /app
 ADD generate_outputs.py /app

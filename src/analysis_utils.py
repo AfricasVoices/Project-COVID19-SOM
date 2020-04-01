@@ -1,7 +1,7 @@
 from core_data_modules.cleaners import Codes
 from core_data_modules.data_models.code_scheme import CodeTypes
 
-from src.lib.configuration_objects import CodingModes
+from src.lib.pipeline_configuration import CodingModes
 
 
 class AnalysisUtils(object):

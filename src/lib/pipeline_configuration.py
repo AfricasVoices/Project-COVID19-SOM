@@ -64,7 +64,7 @@ class PipelineConfiguration(object):
                            fold_strategy=lambda x, y: FoldStrategies.list_of_labels(CodeSchemes.S01E01, x, y)
                        )
                    ],
-                   ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("s01e01"),
+                   ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("covid19 som s01e01"),
                    raw_field_fold_strategy=FoldStrategies.concatenate),
     ]
 

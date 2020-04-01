@@ -25,10 +25,10 @@ done
 
 
 # Check that the correct number of arguments were provided.
-if [[ $# -ne 12 ]]; then
-    echo "Usage: ./docker-run.sh
+if [[ $# -ne 11 ]]; then
+    echo "Usage: ./docker-run-generate-outputs.sh
     [--profile-cpu <profile-output-path>] [--profile-memory <profile-output-path>]
-    <user> <google-cloud-credentials-file-path> <pipeline-configuration-file-path>
+    <user> <pipeline-configuration-file-path>
     <raw-data-dir> <prev-coded-dir> <messages-json-output-path> <individuals-json-output-path>
     <icr-output-dir> <coded-output-dir> <messages-output-csv> <individuals-output-csv> <production-output-csv>"
     exit
@@ -36,17 +36,16 @@ fi
 
 # Assign the program arguments to bash variables.
 USER=$1
-INPUT_GOOGLE_CLOUD_CREDENTIALS=$2
-INPUT_PIPELINE_CONFIGURATION=$3
-INPUT_RAW_DATA_DIR=$4
-PREV_CODED_DIR=$5
-OUTPUT_MESSAGES_JSONL=$6
-OUTPUT_INDIVIDUALS_JSONL=$7
-OUTPUT_ICR_DIR=$8
-OUTPUT_CODED_DIR=$9
-OUTPUT_MESSAGES_CSV=${10}
-OUTPUT_INDIVIDUALS_CSV=${11}
-OUTPUT_PRODUCTION_CSV=${12}
+INPUT_PIPELINE_CONFIGURATION=$2
+INPUT_RAW_DATA_DIR=$3
+PREV_CODED_DIR=$4
+OUTPUT_MESSAGES_JSONL=$5
+OUTPUT_INDIVIDUALS_JSONL=$6
+OUTPUT_ICR_DIR=$7
+OUTPUT_CODED_DIR=$8
+OUTPUT_MESSAGES_CSV=$9
+OUTPUT_INDIVIDUALS_CSV=${10}
+OUTPUT_PRODUCTION_CSV=${11}
 
 # Build an image for this pipeline stage.
 docker build --build-arg INSTALL_MEMORY_PROFILER="$PROFILE_MEMORY" -t "$IMAGE_NAME" .
@@ -60,8 +59,7 @@ if [[ "$PROFILE_MEMORY" = true ]]; then
     PROFILE_MEMORY_CMD="mprof run -o /data/memory.prof"
 fi
 CMD="pipenv run $PROFILE_MEMORY_CMD python -u $PROFILE_CPU_CMD generate_outputs.py \
-    \"$USER\" /credentials/google-cloud-credentials.json /data/pipeline_configuration.json \
-    /data/raw-data /data/prev-coded \
+    \"$USER\" /data/pipeline_configuration.json /data/raw-data /data/prev-coded \
     /data/output-messages.jsonl /data/output-individuals.jsonl /data/output-icr /data/coded \
     /data/output-messages.csv /data/output-individuals.csv /data/output-production.csv \
 "
@@ -72,9 +70,6 @@ container_short_id=${container:0:7}
 # Copy input data into the container
 echo "Copying $INPUT_PIPELINE_CONFIGURATION -> $container_short_id:/data/pipeline_configuration.json"
 docker cp "$INPUT_PIPELINE_CONFIGURATION" "$container:/data/pipeline_configuration.json"
-
-echo "Copying $INPUT_GOOGLE_CLOUD_CREDENTIALS -> $container_short_id:/credentials/google-cloud-credentials.json"
-docker cp "$INPUT_GOOGLE_CLOUD_CREDENTIALS" "$container:/credentials/google-cloud-credentials.json"
 
 echo "Copying $INPUT_RAW_DATA_DIR -> $container_short_id:/data/raw-data"
 docker cp "$INPUT_RAW_DATA_DIR" "$container:/data/raw-data"
