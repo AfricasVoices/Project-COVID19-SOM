@@ -162,7 +162,6 @@ if __name__ == "__main__":
     # like 0 individuals opted out otherwise, which could be confusing.
     # TODO: Report percentages?
     # TODO: Handle distributions for other variables too or just demographics?
-    # TODO: Categorise age
     demographic_distributions = OrderedDict()  # of analysis_file_key -> code string_value -> number of individuals
     for plan in PipelineConfiguration.SURVEY_CODING_PLANS:
         for cc in plan.coding_configurations:
