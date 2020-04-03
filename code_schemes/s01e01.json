@@ -14,6 +14,149 @@
         "Shortcut": "e"
       },
       {
+        "CodeID": "code-Q-a5d3700d",
+        "CodeType": "Meta",
+        "MetaCode": "question",
+        "DisplayText": "meta: question",
+        "NumericValue": -100010,
+        "StringValue": "question",
+        "VisibleInCoda": true,
+        "Shortcut": "q"
+      },
+      {
+        "CodeID": "code-S-461bfcdf",
+        "CodeType": "Meta",
+        "MetaCode": "answer",
+        "DisplayText": "meta: answer",
+        "NumericValue": -100090,
+        "StringValue": "answer",
+        "VisibleInCoda": true,
+        "Shortcut": "a"
+      },
+      {
+        "CodeID": "code-7c9ad462",
+        "CodeType": "Normal",
+        "DisplayText": "knowledge",
+        "NumericValue": 1,
+        "StringValue": "knowledge",
+        "VisibleInCoda": true,
+        "Shortcut": "k"
+      },
+      {
+        "CodeID": "code-764d0175",
+        "CodeType": "Normal",
+        "DisplayText": "attitude",
+        "NumericValue": 2,
+        "StringValue": "attitude",
+        "VisibleInCoda": true,
+        "Shortcut": "m"
+      },
+      {
+        "CodeID": "code-bc54d371",
+        "CodeType": "Normal",
+        "DisplayText": "behaviour",
+        "NumericValue": 3,
+        "StringValue": "behaviour",
+        "VisibleInCoda": true,
+        "Shortcut": "o"
+      },
+      {
+        "CodeID": "code-27b64369",
+        "CodeType": "Normal",
+        "DisplayText": "about coronavirus",
+        "NumericValue": 4,
+        "StringValue": "about_coronavirus",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-d606d1e8",
+        "CodeType": "Normal",
+        "DisplayText": "symptoms",
+        "NumericValue": 5,
+        "StringValue": "symptoms",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-34979c11",
+        "CodeType": "Normal",
+        "DisplayText": "how to prevent",
+        "NumericValue": 6,
+        "StringValue": "how_to_prevent",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-6feb376a",
+        "CodeType": "Normal",
+        "DisplayText": "how to treat",
+        "NumericValue": 7,
+        "StringValue": "how_to_treat",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-9ec1af3e",
+        "CodeType": "Normal",
+        "DisplayText": "how spread/transmitted",
+        "NumericValue": 8,
+        "StringValue": "how_spread_transmitted",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-eeb68475",
+        "CodeType": "Normal",
+        "DisplayText": "what is govt policy",
+        "NumericValue": 9,
+        "StringValue": "what_is_govt_policy",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-e44f75d6",
+        "CodeType": "Normal",
+        "DisplayText": "somalia update",
+        "NumericValue": 10,
+        "StringValue": "somalia_update",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-470524f3",
+        "CodeType": "Normal",
+        "DisplayText": "rumour/stigma/misinfo",
+        "NumericValue": 11,
+        "StringValue": "rumour_stigma_misinfo",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-5dba1303",
+        "CodeType": "Normal",
+        "DisplayText": "opinion on govt/policy",
+        "NumericValue": 12,
+        "StringValue": "opinion_on_govt_policy",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-749d19f3",
+        "CodeType": "Normal",
+        "DisplayText": "collective hope",
+        "NumericValue": 13,
+        "StringValue": "collective_hope",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-08da7dd0",
+        "CodeType": "Normal",
+        "DisplayText": "anxiety/panic",
+        "NumericValue": 14,
+        "StringValue": "anxiety_panic",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-af9e420d",
+        "CodeType": "Normal",
+        "DisplayText": "other theme",
+        "NumericValue": 15,
+        "StringValue": "other_theme",
+        "VisibleInCoda": true
+      },
+      {
         "CodeID": "code-NA-f93d3eb7",
         "CodeType": "Control",
         "ControlCode": "NA",
@@ -101,15 +244,6 @@
         "DisplayText": "meta: showtime question",
         "NumericValue": -100030,
         "StringValue": "showtime_question",
-        "VisibleInCoda": true
-      },
-      {
-        "CodeID": "code-Q-a5d3700d",
-        "CodeType": "Meta",
-        "MetaCode": "question",
-        "DisplayText": "meta: question",
-        "NumericValue": -100010,
-        "StringValue": "question",
         "VisibleInCoda": true
       },
       {
