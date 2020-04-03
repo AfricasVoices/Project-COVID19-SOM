@@ -443,7 +443,7 @@ if __name__ == "__main__":
                  title="Season Distribution: gender", template="plotly_white")
     fig.update_traces(textinfo="value")
     fig.write_image(f"{output_dir}/graphs/season_distribution_gender_pie.png", scale=IMG_SCALE_FACTOR)
-
+    '''
     log.info("Graphing normal themes by gender...")
     # Adapt the theme distributions produced above to extract the normal RQA + gender codes, and graph by gender
     # TODO: Gender is hard-coded here for COVID19. If we need this in future, but don't want to extend to other
@@ -488,7 +488,7 @@ if __name__ == "__main__":
         fig.update_layout(title_text=f"{plan.raw_field} by gender (normalised)")
         fig.update_xaxes(tickangle=-60)
         fig.write_image(f"{output_dir}/graphs/{plan.raw_field}_by_gender_normalised.png", scale=IMG_SCALE_FACTOR)
-
+    '''
     if pipeline_configuration.drive_upload is not None:
         log.info("Uploading CSVs to Drive...")
         paths_to_upload = glob(f"{output_dir}/*.csv")
