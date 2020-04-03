@@ -290,6 +290,33 @@
         "NumericValue": -100070,
         "StringValue": "exclusion_complaint",
         "VisibleInCoda": true
+      },
+      {
+        "MetaCode": "other",
+        "StringValue": "other",
+        "DisplayText": "meta: other",
+        "VisibleInCoda": false,
+        "NumericValue": -100110,
+        "CodeID": "code-O-7ce0d2a7",
+        "CodeType": "Meta"
+      },
+      {
+        "DisplayText": "meta: about conversation",
+        "VisibleInCoda": false,
+        "CodeID": "code-AC-9ed22631",
+        "NumericValue": -100120,
+        "CodeType": "Meta",
+        "MetaCode": "about_conversation",
+        "StringValue": "about_conversation"
+      },
+      {
+        "NumericValue": -100130,
+        "CodeID": "code-CR-8e99616b",
+        "CodeType": "Meta",
+        "MetaCode": "chasing_reply",
+        "StringValue": "chasing_reply",
+        "DisplayText": "meta: chasing reply",
+        "VisibleInCoda": false
       }
     ]
 }
