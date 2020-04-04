@@ -301,6 +301,15 @@
         "CodeType": "Meta"
       },
       {
+        "DisplayText": "meta: gratitude",
+        "VisibleInCoda": true,
+        "NumericValue": -100100,
+        "CodeID": "code-GR-e6de1b7e",
+        "CodeType": "Meta",
+        "MetaCode": "gratitude",
+        "StringValue": "gratitude"
+      },
+      {
         "DisplayText": "meta: about conversation",
         "VisibleInCoda": false,
         "CodeID": "code-AC-9ed22631",
