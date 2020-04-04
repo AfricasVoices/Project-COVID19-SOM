@@ -127,9 +127,9 @@
       {
         "CodeID": "code-5dba1303",
         "CodeType": "Normal",
-        "DisplayText": "opinion on govt/policy",
+        "DisplayText": "government responce",
         "NumericValue": 12,
-        "StringValue": "opinion_on_govt_policy",
+        "StringValue": "government_responce",
         "VisibleInCoda": true
       },
       {
