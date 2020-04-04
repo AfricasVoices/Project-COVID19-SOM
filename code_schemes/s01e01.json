@@ -26,12 +26,12 @@
       {
         "CodeID": "code-S-461bfcdf",
         "CodeType": "Meta",
-        "MetaCode": "answer",
-        "DisplayText": "meta: answer",
+        "MetaCode": "statement",
+        "DisplayText": "meta: statement",
         "NumericValue": -100090,
-        "StringValue": "answer",
+        "StringValue": "statement",
         "VisibleInCoda": true,
-        "Shortcut": "a"
+        "Shortcut": "s"
       },
       {
         "CodeID": "code-7c9ad462",
