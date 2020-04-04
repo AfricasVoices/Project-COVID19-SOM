@@ -33,5 +33,5 @@ for DATASET in ${DATASETS[@]}
 do
     echo "Getting messages data from ${DATASET}..."
 
-    pipenv run python get.py "$AUTH" "${DATASETS}" messages >"$DATA_ROOT/Coded Coda Files/$DATASET.json"
+    pipenv run python get.py "$AUTH" "${DATASET}" messages >"$DATA_ROOT/Coded Coda Files/$DATASET.json"
 done
