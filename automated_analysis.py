@@ -372,11 +372,11 @@ if __name__ == "__main__":
     log.info("Loading the Somali districts geojson...")
     counties_map = geopandas.read_file("geojson/somali_districts.geojson")
 
-    log.info("Generating a map of per-county participation for the season")
+    log.info("Generating a map of per-district participation for the season")
     district_frequencies = dict()
     for code in CodeSchemes.SOMALIA_DISTRICT.codes:
         if code.code_type == CodeTypes.NORMAL:
-            district_frequencies[code.string_value] = demographic_distributions["county"][code.string_value]
+            district_frequencies[code.string_value] = demographic_distributions["district"][code.string_value]
 
     MappingUtils.plot_frequency_map(counties_map, "ADM1_AVF", district_frequencies)
     plt.savefig(f"{output_dir}/maps/districts_total_participants.png", dpi=1200, bbox_inches="tight")
@@ -387,12 +387,12 @@ if __name__ == "__main__":
 
         for cc in plan.coding_configurations:
             # Plot a map of the total relevant participants for this coding configuration.
-            rqa_total_county_frequencies = dict()
+            rqa_total_district_frequencies = dict()
             for district_code in CodeSchemes.SOMALIA_DISTRICT.codes:
                 if district_code.code_type == CodeTypes.NORMAL:
-                    rqa_total_county_frequencies[district_code.string_value] = \
+                    rqa_total_district_frequencies[district_code.string_value] = \
                         episode["Total Relevant Participants"][f"district:{district_code.string_value}"]
-            MappingUtils.plot_frequency_map(counties_map, "ADM1_AVF", rqa_total_county_frequencies)
+            MappingUtils.plot_frequency_map(counties_map, "ADM1_AVF", rqa_total_district_frequencies)
             plt.savefig(f"{output_dir}/maps/district_{cc.analysis_file_key}_1_total_relevant.png",
                         dpi=1200, bbox_inches="tight")
             plt.close()
@@ -404,7 +404,7 @@ if __name__ == "__main__":
                     continue
 
                 theme = f"{cc.analysis_file_key}{code.string_value}"
-                log.info(f"Generating a map of per-county participation for {theme}...")
+                log.info(f"Generating a map of per-district participation for {theme}...")
                 demographic_counts = episode[theme]
 
                 theme_district_frequencies = dict()
