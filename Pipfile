@@ -15,6 +15,10 @@ plotly = "*"
 requests = "*"  # Needed by plotly's image exporter.
 psutil = "*"  # Needed by plotly's image exporter.
 pandas = "*"  # Needed by plotly's express library.
+geopandas = "*"
+matplotlib = "*"  # Needed by geopandas to plot maps.
+descartes = "*"  # Needed by geopandas to plot polygons.
+mapclassify = "*"  # Needed by geopandas for choropleth classification
 
 [dev-packages]
 
