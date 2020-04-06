@@ -26,12 +26,12 @@
       {
         "CodeID": "code-S-461bfcdf",
         "CodeType": "Meta",
-        "MetaCode": "answer",
-        "DisplayText": "meta: answer",
+        "MetaCode": "statement",
+        "DisplayText": "meta: statement",
         "NumericValue": -100090,
-        "StringValue": "answer",
+        "StringValue": "statement",
         "VisibleInCoda": true,
-        "Shortcut": "a"
+        "Shortcut": "s"
       },
       {
         "CodeID": "code-7c9ad462",
@@ -127,9 +127,9 @@
       {
         "CodeID": "code-5dba1303",
         "CodeType": "Normal",
-        "DisplayText": "opinion on govt/policy",
+        "DisplayText": "government responce",
         "NumericValue": 12,
-        "StringValue": "opinion_on_govt_policy",
+        "StringValue": "government_responce",
         "VisibleInCoda": true
       },
       {
