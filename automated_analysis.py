@@ -369,17 +369,17 @@ if __name__ == "__main__":
         for sample in samples:
             writer.writerow(sample)
 
-    log.info("Loading the Somali districts geojson...")
-    counties_map = geopandas.read_file("geojson/somali_districts.geojson")
+    log.info("Loading the Somali regions geojson...")
+    regions_map = geopandas.read_file("geojson/somali_regions.geojson")
 
-    log.info("Generating a map of per-district participation for the season")
-    district_frequencies = dict()
-    for code in CodeSchemes.SOMALIA_DISTRICT.codes:
+    log.info("Generating a map of per-region participation for the season")
+    region_frequencies = dict()
+    for code in CodeSchemes.SOMALIA_REGION.codes:
         if code.code_type == CodeTypes.NORMAL:
-            district_frequencies[code.string_value] = demographic_distributions["district"][code.string_value]
+            region_frequencies[code.string_value] = demographic_distributions["region"][code.string_value]
 
-    MappingUtils.plot_frequency_map(counties_map, "ADM1_AVF", district_frequencies)
-    plt.savefig(f"{output_dir}/maps/districts_total_participants.png", dpi=1200, bbox_inches="tight")
+    MappingUtils.plot_frequency_map(regions_map, "ADM1_AVF", region_frequencies)
+    plt.savefig(f"{output_dir}/maps/regions_total_participants.png", dpi=1200, bbox_inches="tight")
     plt.close()
 
     for plan in PipelineConfiguration.RQA_CODING_PLANS:
@@ -387,13 +387,13 @@ if __name__ == "__main__":
 
         for cc in plan.coding_configurations:
             # Plot a map of the total relevant participants for this coding configuration.
-            rqa_total_district_frequencies = dict()
-            for district_code in CodeSchemes.SOMALIA_DISTRICT.codes:
-                if district_code.code_type == CodeTypes.NORMAL:
-                    rqa_total_district_frequencies[district_code.string_value] = \
-                        episode["Total Relevant Participants"][f"district:{district_code.string_value}"]
-            MappingUtils.plot_frequency_map(counties_map, "ADM1_AVF", rqa_total_district_frequencies)
-            plt.savefig(f"{output_dir}/maps/district_{cc.analysis_file_key}_1_total_relevant.png",
+            rqa_total_region_frequencies = dict()
+            for region_code in CodeSchemes.SOMALIA_REGION.codes:
+                if region_code.code_type == CodeTypes.NORMAL:
+                    rqa_total_region_frequencies[region_code.string_value] = \
+                        episode["Total Relevant Participants"][f"region:{region_code.string_value}"]
+            MappingUtils.plot_frequency_map(regions_map, "ADM1_AVF", rqa_total_region_frequencies)
+            plt.savefig(f"{output_dir}/maps/region_{cc.analysis_file_key}_1_total_relevant.png",
                         dpi=1200, bbox_inches="tight")
             plt.close()
 
@@ -404,17 +404,17 @@ if __name__ == "__main__":
                     continue
 
                 theme = f"{cc.analysis_file_key}{code.string_value}"
-                log.info(f"Generating a map of per-district participation for {theme}...")
+                log.info(f"Generating a map of per-region participation for {theme}...")
                 demographic_counts = episode[theme]
 
-                theme_district_frequencies = dict()
-                for district_code in CodeSchemes.SOMALIA_DISTRICT.codes:
-                    if district_code.code_type == CodeTypes.NORMAL:
-                        theme_district_frequencies[district_code.string_value] = \
-                            demographic_counts[f"district:{district_code.string_value}"]
+                theme_region_frequencies = dict()
+                for region_code in CodeSchemes.SOMALIA_REGION.codes:
+                    if region_code.code_type == CodeTypes.NORMAL:
+                        theme_region_frequencies[region_code.string_value] = \
+                            demographic_counts[f"region:{region_code.string_value}"]
 
-                MappingUtils.plot_frequency_map(counties_map, "ADM1_AVF", theme_district_frequencies)
-                plt.savefig(f"{output_dir}/maps/district_{cc.analysis_file_key}_{map_index}_{code.string_value}.png",
+                MappingUtils.plot_frequency_map(regions_map, "ADM1_AVF", theme_region_frequencies)
+                plt.savefig(f"{output_dir}/maps/region_{cc.analysis_file_key}_{map_index}_{code.string_value}.png",
                             dpi=1200, bbox_inches="tight")
                 plt.close()
 
@@ -572,3 +572,4 @@ if __name__ == "__main__":
     else:
         log.info("Skipping uploading to Google Drive (because the pipeline configuration json does not contain the key "
                  "'DriveUploadPaths')")
+
