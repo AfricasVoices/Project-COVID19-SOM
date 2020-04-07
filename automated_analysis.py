@@ -370,7 +370,7 @@ if __name__ == "__main__":
             writer.writerow(sample)
 
     log.info("Loading the Somali regions geojson...")
-    regions_map = geopandas.read_file("geojson/somali_regions.geojson")
+    regions_map = geopandas.read_file("geojson/somalia_regions.geojson")
 
     log.info("Generating a map of per-region participation for the season")
     region_frequencies = dict()
@@ -572,4 +572,3 @@ if __name__ == "__main__":
     else:
         log.info("Skipping uploading to Google Drive (because the pipeline configuration json does not contain the key "
                  "'DriveUploadPaths')")
-
