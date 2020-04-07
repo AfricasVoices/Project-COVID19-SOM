@@ -5,7 +5,8 @@ import random
 from collections import OrderedDict
 from glob import glob
 
-
+import geopandas
+import matplotlib.pyplot as plt
 import plotly.express as px
 from core_data_modules.cleaners import Codes
 from core_data_modules.data_models.code_scheme import CodeTypes
@@ -18,6 +19,7 @@ from storage.google_drive import drive_client_wrapper
 from src import AnalysisUtils
 from src.lib import PipelineConfiguration, CodeSchemes
 from src.lib.pipeline_configuration import CodingModes
+from src.mapping_utils import MappingUtils
 
 log = Logger(__name__)
 
@@ -53,6 +55,7 @@ if __name__ == "__main__":
     output_dir = args.output_dir
 
     IOUtils.ensure_dirs_exist(output_dir)
+    IOUtils.ensure_dirs_exist(f"{output_dir}/maps")
     IOUtils.ensure_dirs_exist(f"{output_dir}/graphs")
 
     log.info("Loading Pipeline Configuration File...")
@@ -366,6 +369,57 @@ if __name__ == "__main__":
         for sample in samples:
             writer.writerow(sample)
 
+    log.info("Loading the Somali regions geojson...")
+    regions_map = geopandas.read_file("geojson/somalia_regions.geojson")
+
+    log.info("Generating a map of per-region participation for the season")
+    region_frequencies = dict()
+    for code in CodeSchemes.SOMALIA_REGION.codes:
+        if code.code_type == CodeTypes.NORMAL:
+            region_frequencies[code.string_value] = demographic_distributions["region"][code.string_value]
+
+    MappingUtils.plot_frequency_map(regions_map, "ADM1_AVF", region_frequencies)
+    plt.savefig(f"{output_dir}/maps/regions_total_participants.png", dpi=1200, bbox_inches="tight")
+    plt.close()
+
+    for plan in PipelineConfiguration.RQA_CODING_PLANS:
+        episode = episodes[plan.raw_field]
+
+        for cc in plan.coding_configurations:
+            # Plot a map of the total relevant participants for this coding configuration.
+            rqa_total_region_frequencies = dict()
+            for region_code in CodeSchemes.SOMALIA_REGION.codes:
+                if region_code.code_type == CodeTypes.NORMAL:
+                    rqa_total_region_frequencies[region_code.string_value] = \
+                        episode["Total Relevant Participants"][f"region:{region_code.string_value}"]
+            MappingUtils.plot_frequency_map(regions_map, "ADM1_AVF", rqa_total_region_frequencies)
+            plt.savefig(f"{output_dir}/maps/region_{cc.analysis_file_key}_1_total_relevant.png",
+                        dpi=1200, bbox_inches="tight")
+            plt.close()
+
+            # Plot maps of each of the normal themes for this coding configuration.
+            map_index = 2  # (index 1 was used in the total relevant map's filename).
+            for code in cc.code_scheme.codes:
+                if code.code_type != CodeTypes.NORMAL:
+                    continue
+
+                theme = f"{cc.analysis_file_key}{code.string_value}"
+                log.info(f"Generating a map of per-region participation for {theme}...")
+                demographic_counts = episode[theme]
+
+                theme_region_frequencies = dict()
+                for region_code in CodeSchemes.SOMALIA_REGION.codes:
+                    if region_code.code_type == CodeTypes.NORMAL:
+                        theme_region_frequencies[region_code.string_value] = \
+                            demographic_counts[f"region:{region_code.string_value}"]
+
+                MappingUtils.plot_frequency_map(regions_map, "ADM1_AVF", theme_region_frequencies)
+                plt.savefig(f"{output_dir}/maps/region_{cc.analysis_file_key}_{map_index}_{code.string_value}.png",
+                            dpi=1200, bbox_inches="tight")
+                plt.close()
+
+                map_index += 1
+
     log.info("Graphing the per-episode engagement counts...")
     # Graph the number of messages in each episode
     fig = px.bar([x for x in engagement_counts.values() if x["Episode"] != "Total"],
@@ -504,6 +558,15 @@ if __name__ == "__main__":
             log.info(f"Uploading graph {i + 1}/{len(paths_to_upload)}: {path}...")
             drive_client_wrapper.update_or_create(
                 path, f"{pipeline_configuration.drive_upload.analysis_graphs_dir}/graphs",
+                target_folder_is_shared_with_me=True
+            )
+
+        log.info("Uploading maps to Drive...")
+        paths_to_upload = glob(f"{output_dir}/maps/*.png")
+        for i, path in enumerate(paths_to_upload):
+            log.info(f"Uploading map {i + 1}/{len(paths_to_upload)}: {path}...")
+            drive_client_wrapper.update_or_create(
+                path, f"{pipeline_configuration.drive_upload.analysis_graphs_dir}/maps",
                 target_folder_is_shared_with_me=True
             )
     else:
