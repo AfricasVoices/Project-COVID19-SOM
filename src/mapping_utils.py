@@ -49,7 +49,7 @@ class MappingUtils(object):
         plt.axis("off")
 
         # Add a label to each administrative region showing its absolute frequency.
-        # The font size and label position names are currently hard-coded for Kenyan counties.
+        # The font size and label position names are currently hard-coded for Somali Regions counties.
         # TODO: Modify once per-map configuration needs are better understood by testing on other maps.
         for i, admin_region in geo_data.iterrows():
             if pandas.isna(admin_region.ADM1_CALLX):
