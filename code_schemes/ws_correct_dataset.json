@@ -708,6 +708,17 @@
             ]
         },
         {
+            "CodeID": "code-1e9ac8fc",
+            "CodeType": "Normal",
+            "DisplayText": "youth decision making opportunities",
+            "StringValue": "youth_decision_making_opportunities",
+            "NumericValue": 66,
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "youth_decision_making_opportunities"
+            ]
+        },
+        {
             "CodeID": "code-NR-5e3eee23",
             "CodeType": "Control",
             "ControlCode": "NR",
