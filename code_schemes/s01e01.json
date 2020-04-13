@@ -197,6 +197,86 @@
         "VisibleInCoda": true
       },
       {
+        "CodeID": "code-476ffa58",
+        "CodeType": "Normal",
+        "DisplayText": "right practice - general follow advice",
+        "NumericValue": 21,
+        "StringValue": "right_practice_general_follow_advice",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-09effcec",
+        "CodeType": "Normal",
+        "DisplayText": "right practice - distancing/isolation/quarantine",
+        "NumericValue": 22,
+        "StringValue": "right_practice_distancing_isolation_quarantine",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-1015dd8b",
+        "CodeType": "Normal",
+        "DisplayText": "right practice - hygiene",
+        "NumericValue": 23,
+        "StringValue": "right_practice_hygiene",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-c5aeea34",
+        "CodeType": "Normal",
+        "DisplayText": "right practice - multiple",
+        "NumericValue": 24,
+        "StringValue": "right_practice_multiple",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-c8bfc31a",
+        "CodeType": "Normal",
+        "DisplayText": "religion - practice",
+        "NumericValue": 25,
+        "StringValue": "religion_practice",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-bb675fc3",
+        "CodeType": "Normal",
+        "DisplayText": "religion - guidance",
+        "NumericValue": 26,
+        "StringValue": "religion_guidance",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-a285c512",
+        "CodeType": "Normal",
+        "DisplayText": "religion - hope and fate",
+        "NumericValue": 27,
+        "StringValue": "religion_hope_and_fate",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-fd9b6659",
+        "CodeType": "Normal",
+        "DisplayText": "rumour/misinfo - therapies/cures",
+        "NumericValue": 28,
+        "StringValue": "rumour_misinfo_therapies_cures",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-afbc1636",
+        "CodeType": "Normal",
+        "DisplayText": "stigma - hostility/rejection/anger",
+        "NumericValue": 29,
+        "StringValue": "stigma_hostility_rejection_anger",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-126a6e63",
+        "CodeType": "Normal",
+        "DisplayText": "rumour/misinfo - cause misunderstood",
+        "NumericValue": 30,
+        "StringValue": "rumour_misinfo_cause_misunderstood",
+        "VisibleInCoda": true
+      },
+      {
         "CodeID": "code-NA-f93d3eb7",
         "CodeType": "Control",
         "ControlCode": "NA",
