@@ -55,7 +55,8 @@ if __name__ == "__main__":
     output_dir = args.output_dir
 
     IOUtils.ensure_dirs_exist(output_dir)
-    IOUtils.ensure_dirs_exist(f"{output_dir}/maps")
+    IOUtils.ensure_dirs_exist(f"{output_dir}/maps/regions")
+    IOUtils.ensure_dirs_exist(f"{output_dir}/maps/districts")
     IOUtils.ensure_dirs_exist(f"{output_dir}/graphs")
 
     log.info("Loading Pipeline Configuration File...")
@@ -382,7 +383,7 @@ if __name__ == "__main__":
     MappingUtils.plot_frequency_map(regions_map, "ADM1_AVF", region_frequencies,
                                     label_position_columns=("ADM1_LX", "ADM1_LY"),
                                     callout_position_columns=("ADM1_CALLX", "ADM1_CALLY"), ax=ax)
-    plt.savefig(f"{output_dir}/maps/regions_total_participants.png", dpi=1200, bbox_inches="tight")
+    plt.savefig(f"{output_dir}/maps/regions/regions_total_participants.png", dpi=1200, bbox_inches="tight")
     plt.close()
 
     for plan in PipelineConfiguration.RQA_CODING_PLANS:
@@ -424,9 +425,65 @@ if __name__ == "__main__":
                 MappingUtils.plot_frequency_map(regions_map, "ADM1_AVF", theme_region_frequencies,
                                                 label_position_columns=("ADM1_LX", "ADM1_LY"),
                                                 callout_position_columns=("ADM1_CALLX", "ADM1_CALLY"), ax=ax)
-                plt.savefig(f"{output_dir}/maps/region_{cc.analysis_file_key}_{map_index}_{code.string_value}.png",
+                plt.savefig(f"{output_dir}/maps/regions/region_{cc.analysis_file_key}_{map_index}_{code.string_value}.png",
                             dpi=1200, bbox_inches="tight")
                 plt.close()
+
+                map_index += 1
+
+    log.info("Loading the Somalia districts geojson...")
+    districts_map = geopandas.read_file("geojson/somalia_districts.geojson")
+
+    log.info("Generating a map of per-district participation for the season")
+    district_frequencies = dict()
+    for code in CodeSchemes.SOMALIA_DISTRICT.codes:
+        if code.code_type == CodeTypes.NORMAL:
+            district_frequencies[code.string_value] = demographic_distributions["district"][code.string_value]
+
+    fig, ax = plt.subplots()
+    MappingUtils.plot_frequency_map(districts_map, "ADM2_AVF", district_frequencies, ax=ax)
+    plt.savefig(f"{output_dir}/maps/districts/district_total_participants.png", dpi=1200, bbox_inches="tight")
+    plt.close(fig)
+
+    for plan in PipelineConfiguration.RQA_CODING_PLANS:
+        episode = episodes[plan.raw_field]
+
+        for cc in plan.coding_configurations:
+            # Plot a map of the total relevant participants for this coding configuration.
+            rqa_total_district_frequencies = dict()
+            for district_code in CodeSchemes.SOMALIA_DISTRICT.codes:
+                if district_code.code_type == CodeTypes.NORMAL:
+                    rqa_total_district_frequencies[district_code.string_value] = \
+                        episode["Total Relevant Participants"][f"district:{district_code.string_value}"]
+
+            fig, ax = plt.subplots()
+            MappingUtils.plot_frequency_map(districts_map, "ADM2_AVF", rqa_total_district_frequencies, ax=ax)
+            plt.savefig(f"{output_dir}/maps/district_{cc.analysis_file_key}_1_total_relevant.png",
+                        dpi=1200, bbox_inches="tight")
+            plt.close(fig)
+
+            # Plot maps of each of the normal themes for this coding configuration.
+            map_index = 2  # (index 1 was used in the total relevant map's filename).
+            for code in cc.code_scheme.codes:
+                if code.code_type != CodeTypes.NORMAL:
+                    continue
+
+                theme = f"{cc.analysis_file_key}{code.string_value}"
+                log.info(f"Generating a map of per-district participation for {theme}...")
+                demographic_counts = episode[theme]
+
+                theme_district_frequencies = dict()
+                for district_code in CodeSchemes.SOMALIA_DISTRICT.codes:
+                    if district_code.code_type == CodeTypes.NORMAL:
+                        theme_district_frequencies[district_code.string_value] = \
+                            demographic_counts[f"district:{district_code.string_value}"]
+
+                fig, ax = plt.subplots()
+                MappingUtils.plot_frequency_map(districts_map, "ADM2_AVF", theme_district_frequencies, ax=ax)
+                plt.savefig(
+                    f"{output_dir}/maps/districts/district_{cc.analysis_file_key}_{map_index}_{code.string_value}.png",
+                    dpi=1200, bbox_inches="tight")
+                plt.close(fig)
 
                 map_index += 1
 
@@ -571,12 +628,21 @@ if __name__ == "__main__":
                 target_folder_is_shared_with_me=True
             )
 
-        log.info("Uploading maps to Drive...")
-        paths_to_upload = glob(f"{output_dir}/maps/*.png")
+        log.info("Uploading region maps to Drive...")
+        paths_to_upload = glob(f"{output_dir}/maps/regions/*.png")
         for i, path in enumerate(paths_to_upload):
             log.info(f"Uploading map {i + 1}/{len(paths_to_upload)}: {path}...")
             drive_client_wrapper.update_or_create(
-                path, f"{pipeline_configuration.drive_upload.analysis_graphs_dir}/maps",
+                path, f"{pipeline_configuration.drive_upload.analysis_graphs_dir}/maps/regions",
+                target_folder_is_shared_with_me=True
+            )
+
+        log.info("Uploading district maps to Drive...")
+        paths_to_upload = glob(f"{output_dir}/maps/districts/*.png")
+        for i, path in enumerate(paths_to_upload):
+            log.info(f"Uploading map {i + 1}/{len(paths_to_upload)}: {path}...")
+            drive_client_wrapper.update_or_create(
+                path, f"{pipeline_configuration.drive_upload.analysis_graphs_dir}/maps/districts/",
                 target_folder_is_shared_with_me=True
             )
     else:
