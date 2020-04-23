@@ -401,7 +401,7 @@ if __name__ == "__main__":
             MappingUtils.plot_frequency_map(regions_map, "ADM1_AVF", rqa_total_region_frequencies,
                                             label_position_columns=("ADM1_LX", "ADM1_LY"),
                                             callout_position_columns=("ADM1_CALLX", "ADM1_CALLY"), ax=ax)
-            plt.savefig(f"{output_dir}/maps/region_{cc.analysis_file_key}_1_total_relevant.png",
+            plt.savefig(f"{output_dir}/maps/regions/region_{cc.analysis_file_key}_1_total_relevant.png",
                         dpi=1200, bbox_inches="tight")
             plt.close()
 
@@ -458,7 +458,7 @@ if __name__ == "__main__":
 
             fig, ax = plt.subplots()
             MappingUtils.plot_frequency_map(districts_map, "ADM2_AVF", rqa_total_district_frequencies, ax=ax)
-            plt.savefig(f"{output_dir}/maps/district_{cc.analysis_file_key}_1_total_relevant.png",
+            plt.savefig(f"{output_dir}/maps/districts/district_{cc.analysis_file_key}_1_total_relevant.png",
                         dpi=1200, bbox_inches="tight")
             plt.close(fig)
 
