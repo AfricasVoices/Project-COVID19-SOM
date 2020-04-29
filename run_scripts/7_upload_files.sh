@@ -17,6 +17,6 @@ MEMORY_PROFILE_FILE_PATH=$6
 DATA_ARCHIVE_FILE_PATH=$7
 
 cd ..
-./docker-run-upload-files.sh "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION_FILE_PATH" "$RUN_ID" \
+pipenv run python upload_files.py "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION_FILE_PATH" "$RUN_ID" \
     "$DATA_ROOT/Outputs/production.csv" "$DATA_ROOT/Outputs/messages.csv" "$DATA_ROOT/Outputs/individuals.csv" \
     "$MEMORY_PROFILE_FILE_PATH" "$DATA_ARCHIVE_FILE_PATH"
