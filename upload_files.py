@@ -91,7 +91,7 @@ if __name__ == "__main__":
 
     except Exception as ex:
         log.info(f"Renaming file to {memory_profile_file_path}_FAILED because the upload failed")
-        os.rename(memory_profile_file_path, f"{memory_profile_file_path}_Failed")
+        os.rename(memory_profile_file_path, f"{memory_profile_file_path}_FailedUpload")
         raise ex
 
     data_archive_upload_location = f"{pipeline_configuration.data_archive_upload_url_prefix}{run_id}.tar.gzip"
@@ -105,5 +105,5 @@ if __name__ == "__main__":
 
     except Exception as ex:
         log.info(f"Renaming file to {data_archive_file_path}_FAILED because the upload failed")
-        os.rename(data_archive_file_path, f"{data_archive_file_path}_Failed")
+        os.rename(data_archive_file_path, f"{data_archive_file_path}_FailedUpload")
         raise ex
