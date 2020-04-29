@@ -82,19 +82,28 @@ if __name__ == "__main__":
     else:
         log.info("Skipping uploading to Google Drive (because the pipeline configuration json does not contain the key "
                  "'DriveUploadPaths')")
-        
-    memory_profile_upload_location = f"{pipeline_configuration.memory_profile_upload_url_prefix}{run_id}.profile"
-    log.info(f"Uploading the memory profile from {memory_profile_file_path} to "
-             f"{memory_profile_upload_location}...")
-    with open(memory_profile_file_path, "rb") as f:
-        google_cloud_utils.upload_file_to_blob(
-            google_cloud_credentials_file_path, memory_profile_upload_location, f
-        )
+
+    try:
+        memory_profile_upload_location = f"{pipeline_configuration.memory_profile_upload_url_prefix}{run_id}.profile"
+        log.info(f"Uploading the memory profile from {memory_profile_file_path} to " f"{memory_profile_upload_location}...")
+        with open(memory_profile_file_path, "rb") as f:
+            google_cloud_utils.upload_file_to_blob(google_cloud_credentials_file_path, memory_profile_upload_location, f)
+
+    except Exception as ex:
+        log.info(f"Renaming file to {memory_profile_file_path}_FAILED because the upload failed")
+        os.rename(memory_profile_file_path, f"{memory_profile_file_path}_Failed")
+        raise ex
 
     data_archive_upload_location = f"{pipeline_configuration.data_archive_upload_url_prefix}{run_id}.tar.gzip"
-    log.info(f"Uploading the data archive from {data_archive_file_path} to "
-             f"{data_archive_upload_location}...")
-    with open(data_archive_file_path, "rb") as f:
-        google_cloud_utils.upload_file_to_blob(
-            google_cloud_credentials_file_path, data_archive_upload_location, f
-        )
+    try:
+        data_archive_upload_location = f"{pipeline_configuration.data_archive_upload_url_prefix}{run_id}.tar.gzip"
+        log.info(f"Uploading the data archive from {data_archive_file_path} to " f"{data_archive_upload_location}...")
+        with open(data_archive_file_path, "rb") as f:
+            google_cloud_utils.upload_file_to_blob(google_cloud_credentials_file_path, data_archive_upload_location, f )
+            log.warning(f"Deleting the data archive file because the upload was successful")
+            os.remove(data_archive_file_path)
+
+    except Exception as ex:
+        log.info(f"Renaming file to {data_archive_file_path}_FAILED because the upload failed")
+        os.rename(data_archive_file_path, f"{data_archive_file_path}_Failed")
+        raise ex
