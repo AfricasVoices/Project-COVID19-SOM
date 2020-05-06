@@ -1,0 +1,451 @@
+{
+    "SchemeID": "Scheme-2efbccca",
+    "Name": "S01E02",
+    "Version": "0.0.0.1",
+    "Codes": [
+      {
+        "CodeID": "code-E-720cdb66",
+        "CodeType": "Meta",
+        "MetaCode": "escalate",
+        "DisplayText": "meta: ESCALATE",
+        "NumericValue": -100080,
+        "StringValue": "escalate",
+        "VisibleInCoda": true,
+        "Shortcut": "e"
+      },
+      {
+        "CodeID": "code-Q-a5d3700d",
+        "CodeType": "Meta",
+        "MetaCode": "question",
+        "DisplayText": "meta: question",
+        "NumericValue": -100010,
+        "StringValue": "question",
+        "VisibleInCoda": true,
+        "Shortcut": "q"
+      },
+      {
+        "CodeID": "code-S-461bfcdf",
+        "CodeType": "Meta",
+        "MetaCode": "statement",
+        "DisplayText": "meta: statement",
+        "NumericValue": -100090,
+        "StringValue": "statement",
+        "VisibleInCoda": true,
+        "Shortcut": "s"
+      },
+      {
+        "CodeID": "code-f6654ff9",
+        "CodeType": "Normal",
+        "DisplayText": "knowledge",
+        "NumericValue": 1,
+        "StringValue": "knowledge",
+        "VisibleInCoda": true,
+        "Shortcut": "k"
+      },
+      {
+        "CodeID": "code-2d0584e2",
+        "CodeType": "Normal",
+        "DisplayText": "attitude",
+        "NumericValue": 2,
+        "StringValue": "attitude",
+        "VisibleInCoda": true,
+        "Shortcut": "m"
+      },
+      {
+        "CodeID": "code-177438b5",
+        "CodeType": "Normal",
+        "DisplayText": "behaviour",
+        "NumericValue": 3,
+        "StringValue": "behaviour",
+        "VisibleInCoda": true,
+        "Shortcut": "o"
+      },
+      {
+        "CodeID": "code-0eb5b917",
+        "CodeType": "Normal",
+        "DisplayText": "about coronavirus",
+        "NumericValue": 4,
+        "StringValue": "about_coronavirus",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-2cf3e7a5",
+        "CodeType": "Normal",
+        "DisplayText": "symptoms",
+        "NumericValue": 5,
+        "StringValue": "symptoms",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-b0c10ba0",
+        "CodeType": "Normal",
+        "DisplayText": "how to prevent",
+        "NumericValue": 6,
+        "StringValue": "how_to_prevent",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-5a2b3a52",
+        "CodeType": "Normal",
+        "DisplayText": "how to treat",
+        "NumericValue": 7,
+        "StringValue": "how_to_treat",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-a8e1e2c2",
+        "CodeType": "Normal",
+        "DisplayText": "how spread/transmitted",
+        "NumericValue": 8,
+        "StringValue": "how_spread_transmitted",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-9009b04b",
+        "CodeType": "Normal",
+        "DisplayText": "what is govt policy",
+        "NumericValue": 9,
+        "StringValue": "what_is_govt_policy",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-5dd2ab5c",
+        "CodeType": "Normal",
+        "DisplayText": "somalia update",
+        "NumericValue": 10,
+        "StringValue": "somalia_update",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-ff6a9159",
+        "CodeType": "Normal",
+        "DisplayText": "rumour/stigma/misinfo",
+        "NumericValue": 11,
+        "StringValue": "rumour_stigma_misinfo",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-2f912334",
+        "CodeType": "Normal",
+        "DisplayText": "government responce",
+        "NumericValue": 12,
+        "StringValue": "government_responce",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-dabd1320",
+        "CodeType": "Normal",
+        "DisplayText": "collective hope",
+        "NumericValue": 13,
+        "StringValue": "collective_hope",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-68008f6d",
+        "CodeType": "Normal",
+        "DisplayText": "anxiety/panic",
+        "NumericValue": 14,
+        "StringValue": "anxiety_panic",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-cfce02e6",
+        "CodeType": "Normal",
+        "DisplayText": "other theme",
+        "NumericValue": 15,
+        "StringValue": "other_theme",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-2efbccca",
+        "CodeType": "Normal",
+        "DisplayText": "religious hope/practice",
+        "NumericValue": 16,
+        "StringValue": "religious_hope_practice",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-fd0eb44a",
+        "CodeType": "Normal",
+        "DisplayText": "denial",
+        "NumericValue": 17,
+        "StringValue": "denial",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-b80a18a2",
+        "CodeType": "Normal",
+        "DisplayText": "humanitarian aid",
+        "NumericValue": 18,
+        "StringValue": "humanitarian_aid",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-d996e685",
+        "CodeType": "Normal",
+        "DisplayText": "call for awareness creation",
+        "NumericValue": 19,
+        "StringValue": "call_for_awareness_creation",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-e11efc19",
+        "CodeType": "Normal",
+        "DisplayText": "call for right practice",
+        "NumericValue": 20,
+        "StringValue": "call_for_right_practice",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-476ffa58",
+        "CodeType": "Normal",
+        "DisplayText": "right practice - general follow advice",
+        "NumericValue": 21,
+        "StringValue": "right_practice_general_follow_advice",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-0cf3df47",
+        "CodeType": "Normal",
+        "DisplayText": "right practice - distancing/isolation/quarantine",
+        "NumericValue": 22,
+        "StringValue": "right_practice_distancing_isolation_quarantine",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-7168828a",
+        "CodeType": "Normal",
+        "DisplayText": "right practice - hygiene",
+        "NumericValue": 23,
+        "StringValue": "right_practice_hygiene",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-405e5330",
+        "CodeType": "Normal",
+        "DisplayText": "right practice - multiple",
+        "NumericValue": 24,
+        "StringValue": "right_practice_multiple",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-b8b8976d",
+        "CodeType": "Normal",
+        "DisplayText": "religion - practice",
+        "NumericValue": 25,
+        "StringValue": "religion_practice",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-c54b22bc",
+        "CodeType": "Normal",
+        "DisplayText": "religion - guidance",
+        "NumericValue": 26,
+        "StringValue": "religion_guidance",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-315320f8",
+        "CodeType": "Normal",
+        "DisplayText": "religion - hope and fate",
+        "NumericValue": 27,
+        "StringValue": "religion_hope_and_fate",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-3ae5122c",
+        "CodeType": "Normal",
+        "DisplayText": "rumour/misinfo - therapies/cures",
+        "NumericValue": 28,
+        "StringValue": "rumour_misinfo_therapies_cures",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-9d939fad",
+        "CodeType": "Normal",
+        "DisplayText": "stigma - hostility/rejection/anger",
+        "NumericValue": 29,
+        "StringValue": "stigma_hostility_rejection_anger",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-59c0e276",
+        "CodeType": "Normal",
+        "DisplayText": "rumour/misinfo - cause misunderstood",
+        "NumericValue": 30,
+        "StringValue": "rumour_misinfo_cause_misunderstood",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-NA-f93d3eb7",
+        "CodeType": "Control",
+        "ControlCode": "NA",
+        "DisplayText": "NA (missing)",
+        "NumericValue": -10,
+        "StringValue": "NA",
+        "VisibleInCoda": false
+      },
+      {
+        "CodeID": "code-NS-2c11b7c9",
+        "CodeType": "Control",
+        "ControlCode": "NS",
+        "DisplayText": "NS (skip)",
+        "NumericValue": -20,
+        "StringValue": "NS",
+        "VisibleInCoda": false
+      },
+      {
+        "CodeID": "code-NC-42f1d983",
+        "CodeType": "Control",
+        "ControlCode": "NC",
+        "DisplayText": "NC (not coded)",
+        "NumericValue": -30,
+        "StringValue": "NC",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-NR-5e3eee23",
+        "CodeType": "Control",
+        "ControlCode": "NR",
+        "DisplayText": "NR (not reviewed)",
+        "NumericValue": -40,
+        "StringValue": "NR",
+        "VisibleInCoda": false
+      },
+      {
+        "CodeID": "code-NIC-99631cb8",
+        "CodeType": "Control",
+        "ControlCode": "NIC",
+        "DisplayText": "NIC (not internally consistent)",
+        "NumericValue": -50,
+        "StringValue": "NIC",
+        "VisibleInCoda": false
+      },
+      {
+        "CodeID": "code-STOP-08b832a8",
+        "CodeType": "Control",
+        "ControlCode": "STOP",
+        "DisplayText": "STOP",
+        "NumericValue": -90,
+        "StringValue": "STOP",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-WS-adb25603b7af",
+        "CodeType": "Control",
+        "ControlCode": "WS",
+        "DisplayText": "WS (wrong scheme)",
+        "NumericValue": -100,
+        "StringValue": "WS",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-CE-016c1e22",
+        "CodeType": "Control",
+        "ControlCode": "CE",
+        "DisplayText": "CE (coding error)",
+        "NumericValue": -110,
+        "StringValue": "CE",
+        "VisibleInCoda": false
+      },
+      {
+        "CodeID": "code-PB-a434a800",
+        "CodeType": "Meta",
+        "MetaCode": "push_back",
+        "DisplayText": "meta: push back",
+        "NumericValue": -100000,
+        "StringValue": "push_back",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-SQ-5e8f0122",
+        "CodeType": "Meta",
+        "MetaCode": "showtime_question",
+        "DisplayText": "meta: showtime question",
+        "NumericValue": -100030,
+        "StringValue": "showtime_question",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-G-97cb3199",
+        "CodeType": "Meta",
+        "MetaCode": "greeting",
+        "DisplayText": "meta: greeting",
+        "NumericValue": -100020,
+        "StringValue": "greeting",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-OI-c5f1d054",
+        "CodeType": "Meta",
+        "MetaCode": "opt-in",
+        "DisplayText": "meta: opt-in",
+        "NumericValue": -100040,
+        "StringValue": "opt_in",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-SC-a3a065bc",
+        "CodeType": "Meta",
+        "MetaCode": "similar_content",
+        "DisplayText": "meta: similar content",
+        "NumericValue": -100050,
+        "StringValue": "similar_content",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-PI-83b90d32",
+        "CodeType": "Meta",
+        "MetaCode": "participation_incentive",
+        "DisplayText": "meta: participation incentive",
+        "NumericValue": -100060,
+        "StringValue": "participation_incentive",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-EC-3a704f5b",
+        "CodeType": "Meta",
+        "MetaCode": "exclusion_complaint",
+        "DisplayText": "meta: exclusion complaint",
+        "NumericValue": -100070,
+        "StringValue": "exclusion_complaint",
+        "VisibleInCoda": true
+      },
+      {
+        "MetaCode": "other",
+        "StringValue": "other",
+        "DisplayText": "meta: other",
+        "VisibleInCoda": false,
+        "NumericValue": -100110,
+        "CodeID": "code-O-7ce0d2a7",
+        "CodeType": "Meta"
+      },
+      {
+        "DisplayText": "meta: gratitude",
+        "VisibleInCoda": true,
+        "NumericValue": -100100,
+        "CodeID": "code-GR-e6de1b7e",
+        "CodeType": "Meta",
+        "MetaCode": "gratitude",
+        "StringValue": "gratitude"
+      },
+      {
+        "DisplayText": "meta: about conversation",
+        "VisibleInCoda": false,
+        "CodeID": "code-AC-9ed22631",
+        "NumericValue": -100120,
+        "CodeType": "Meta",
+        "MetaCode": "about_conversation",
+        "StringValue": "about_conversation"
+      },
+      {
+        "NumericValue": -100130,
+        "CodeID": "code-CR-8e99616b",
+        "CodeType": "Meta",
+        "MetaCode": "chasing_reply",
+        "StringValue": "chasing_reply",
+        "DisplayText": "meta: chasing reply",
+        "VisibleInCoda": false
+      }
+    ]
+}
