@@ -34,6 +34,62 @@
         "Shortcut": "s"
       },
       {
+        "CodeID": "code-57aeb565",
+        "CodeType": "Normal",
+        "DisplayText": "unclear who is speaking",
+        "NumericValue": 1,
+        "StringValue": "unclear_who_is_speaking",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-51881163",
+        "CodeType": "Normal",
+        "DisplayText": "prayer",
+        "NumericValue": 2,
+        "StringValue": "prayer",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-73db94b0",
+        "CodeType": "Normal",
+        "DisplayText": "follow the advice of the government",
+        "NumericValue": 3,
+        "StringValue": "follow_the_advice_of_the_government",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-9c765886",
+        "CodeType": "Normal",
+        "DisplayText": "denial",
+        "NumericValue": 4,
+        "StringValue": "denial",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-d04669f3",
+        "CodeType": "Normal",
+        "DisplayText": "rumour/stigma/misinfo",
+        "NumericValue": 5,
+        "StringValue": "rumour_stigma_misinfo",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-67d1a441",
+        "CodeType": "Normal",
+        "DisplayText": "protect the vulnerable",
+        "NumericValue": 6,
+        "StringValue": "protect_the_vulnerable",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-dd71e8fe",
+        "CodeType": "Normal",
+        "DisplayText": "other theme",
+        "NumericValue": 7,
+        "StringValue": "other_theme",
+        "VisibleInCoda": true
+      },
+      {
         "CodeID": "code-NA-f93d3eb7",
         "CodeType": "Control",
         "ControlCode": "NA",
