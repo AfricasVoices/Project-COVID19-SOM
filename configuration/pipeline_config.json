@@ -7,7 +7,8 @@
       "TokenFileURL": "gs://avf-credentials/imaqal-text-it-token.txt",
       "ContactsFileName": "covid19_som_contacts",
       "ActivationFlowNames": [
-        "covid19_som_s01e01_activation"
+        "covid19_som_s01e01_activation",
+        "covid19_som_s01e02_activation"
       ],
       "SurveyFlowNames": [
         "imaqal_demog"
@@ -29,6 +30,10 @@
     {"RapidProKey": "Covid19_Som_Rqa_S01E01 (Text) - covid19_som_s01e01_activation", "PipelineKey": "rqa_s01e01_raw", "IsActivationMessage": true},
     {"RapidProKey": "Covid19_Som_Rqa_S01E01 (Run ID) - covid19_som_s01e01_activation", "PipelineKey": "rqa_s01e01_run_id"},
     {"RapidProKey": "Covid19_Som_Rqa_S01E01 (Time) - covid19_som_s01e01_activation", "PipelineKey": "sent_on"},
+
+    {"RapidProKey": "Covid19_Som_Rqa_S01E02 (Text) - covid19_som_s01e02_activation", "PipelineKey": "rqa_s01e02_raw", "IsActivationMessage": true},
+    {"RapidProKey": "Covid19_Som_Rqa_S01E02 (Run ID) - covid19_som_s01e02_activation", "PipelineKey": "rqa_s01e02_run_id"},
+    {"RapidProKey": "Covid19_Som_Rqa_S01E02 (Time) - covid19_som_s01e02_activation", "PipelineKey": "sent_on"},
 
     {"RapidProKey": "Gender (Value) - imaqal_demog", "PipelineKey": "gender_raw"},
     {"RapidProKey": "Gender (Time) - imaqal_demog", "PipelineKey": "gender_time"},
