@@ -16,6 +16,7 @@ DATA_ROOT=$3
 
 DATASETS=(
     "COVID19_SOM_s01e01"
+    "COVID19_SOM_s01e02"
 
     "IMAQAL_gender"
     "IMAQAL_location"

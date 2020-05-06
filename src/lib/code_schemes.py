@@ -11,6 +11,7 @@ def _open_scheme(filename):
 
 class CodeSchemes(object):
     S01E01 = _open_scheme("s01e01.json")
+    S01E02 = _open_scheme("s01e02.json")
 
     AGE = _open_scheme("age.json")
     AGE_CATEGORY = _open_scheme("age_category.json")

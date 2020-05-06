@@ -70,6 +70,17 @@
             ]
         },
         {
+            "CodeID": "code-0eb00586",
+            "CodeType": "Normal",
+            "DisplayText": "covid19 som s01e02",
+            "StringValue": "covid19_som_s01e02",
+            "NumericValue": 67,
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "covid19 som s01e02"
+            ]
+        },
+        {
             "CodeID": "code-9bd0f2b1",
             "CodeType": "Normal",
             "DisplayText": "s01e01",
