@@ -68,9 +68,9 @@
       {
         "CodeID": "code-d04669f3",
         "CodeType": "Normal",
-        "DisplayText": "rumour misinfo",
+        "DisplayText": "rumour/stigma/misinfo",
         "NumericValue": 5,
-        "StringValue": "rumour_misinfo",
+        "StringValue": "rumour_stigma_misinfo",
         "VisibleInCoda": true
       },
       {
