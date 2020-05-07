@@ -36,9 +36,9 @@
       {
         "CodeID": "code-57aeb565",
         "CodeType": "Normal",
-        "DisplayText": "unclear who is speaking",
+        "DisplayText": "unclear whose advice",
         "NumericValue": 1,
-        "StringValue": "unclear_who_is_speaking",
+        "StringValue": "unclear_whose_advice",
         "VisibleInCoda": true
       },
       {
@@ -68,9 +68,9 @@
       {
         "CodeID": "code-d04669f3",
         "CodeType": "Normal",
-        "DisplayText": "rumour/stigma/misinfo",
+        "DisplayText": "rumour/misinfo",
         "NumericValue": 5,
-        "StringValue": "rumour_stigma_misinfo",
+        "StringValue": "rumour_misinfo",
         "VisibleInCoda": true
       },
       {
@@ -79,6 +79,14 @@
         "DisplayText": "protect the vulnerable",
         "NumericValue": 6,
         "StringValue": "protect_the_vulnerable",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-aeedb431",
+        "CodeType": "Normal",
+        "DisplayText": "stigma",
+        "NumericValue": 8,
+        "StringValue": "stigma",
         "VisibleInCoda": true
       },
       {
