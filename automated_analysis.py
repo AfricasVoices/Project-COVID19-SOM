@@ -594,13 +594,13 @@ if __name__ == "__main__":
                 if gender_code.code_type != CodeTypes.NORMAL:
                     continue
 
+                total_relevant_gender = episode["Total Relevant Participants"][f"gender:{gender_code.string_value}"]
                 normal_by_gender.append({
                     "RQA Theme": theme,
                     "Gender": gender_code.string_value,
                     "Number of Participants": demographic_counts[f"gender:{gender_code.string_value}"],
-                    "Fraction of Relevant Participants":
-                        demographic_counts[f"gender:{gender_code.string_value}"] /
-                        episode["Total Relevant Participants"][f"gender:{gender_code.string_value}"]
+                    "Fraction of Relevant Participants": None if total_relevant_gender == 0 else
+                        demographic_counts[f"gender:{gender_code.string_value}"] / total_relevant_gender
                 })
 
         fig = px.bar(normal_by_gender, x="RQA Theme", y="Number of Participants", color="Gender", barmode="group",
