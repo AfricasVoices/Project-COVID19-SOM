@@ -84,9 +84,9 @@
       {
         "CodeID": "code-aeedb431",
         "CodeType": "Normal",
-        "DisplayText": "stigma",
+        "DisplayText": "negative stigma",
         "NumericValue": 8,
-        "StringValue": "stigma",
+        "StringValue": "negative_stigma",
         "VisibleInCoda": true
       },
       {
