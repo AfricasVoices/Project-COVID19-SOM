@@ -3,13 +3,13 @@
 set -e
 
 PROJECT_NAME="$(<configuration/docker_image_project_name.txt)"
-IMAGE_NAME=$PROJECT_NAME-upload-files
+IMAGE_NAME=$PROJECT_NAME-upload-analysis-files
 
 # Check that the correct number of arguments were provided.
-if [[ $# -ne 9 ]]; then
-    echo "Usage: ./docker-run-upload-files.sh
+if [[ $# -ne 7 ]]; then
+    echo "Usage: ./docker-run-upload-analysis-files.sh
     <user> <google-cloud-credentials-file-path> <pipeline-configuration-file-path> <run-id> <production-csv-path>
-    <messages-csv-path> <individuals-csv-path> <memory-profile-path> <data-archive-path>"
+    <messages-csv-path> <individuals-csv-path>"
     exit
 fi
 
@@ -21,8 +21,6 @@ RUN_ID=$4
 INPUT_PRODUCTION_CSV=$5
 INPUT_MESSAGES_CSV=$6
 INPUT_INDIVIDUALS_CSV=$7
-INPUT_MEMORY_PROFILE=$8
-INPUT_DATA_ARCHIVE=$9
 
 # Build an image for this pipeline stage.
 docker build -t "$IMAGE_NAME" .
@@ -30,7 +28,7 @@ docker build -t "$IMAGE_NAME" .
 # Create a container from the image that was just built.
 CMD="pipenv run python -u upload_files.py \
     \"$USER\" /credentials/google-cloud-credentials.json /data/pipeline_configuration.json \"$RUN_ID\" \
-    /data/production.csv /data/messages.csv /data/individuals.csv /data/memory.profile /data/data-archive.tar.gzip
+    /data/production.csv /data/messages.csv /data/individuals.csv
 "
 container="$(docker container create -w /app "$IMAGE_NAME" /bin/bash -c "$CMD")"
 echo "Created container $container"
@@ -51,12 +49,6 @@ docker cp "$INPUT_MESSAGES_CSV" "$container:/data/messages.csv"
 
 echo "Copying $INPUT_INDIVIDUALS_CSV -> $container_short_id:/data/individuals.csv"
 docker cp "$INPUT_INDIVIDUALS_CSV" "$container:/data/individuals.csv"
-
-echo "Copying $INPUT_MEMORY_PROFILE -> $container_short_id:/data/memory.profile"
-docker cp "$INPUT_MEMORY_PROFILE" "$container:/data/memory.profile"
-
-echo "Copying $INPUT_DATA_ARCHIVE -> $container_short_id:/data/data-archive.tar.gzip"
-docker cp "$INPUT_DATA_ARCHIVE" "$container:/data/data-archive.tar.gzip"
 
 # Run the container
 echo "Starting container $container_short_id"

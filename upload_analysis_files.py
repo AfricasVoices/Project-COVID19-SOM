@@ -11,7 +11,7 @@ from src.lib import PipelineConfiguration
 log = Logger(__name__)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Uploads output files")
+    parser = argparse.ArgumentParser(description="Uploads analysis output files to google drive")
 
     parser.add_argument("user", help="User launching this program")
     parser.add_argument("google_cloud_credentials_file_path", metavar="google-cloud-credentials-file-path",
@@ -30,10 +30,6 @@ if __name__ == "__main__":
     parser.add_argument("individuals_csv_input_path", metavar="individuals-csv-input-path",
                         help="Path to analysis dataset CSV where respondents are the unit for analysis (i.e. one "
                              "respondent per row, with all their messages joined into a single cell)"),
-    parser.add_argument("memory_profile_file_path", metavar="memory-profile-file-path",
-                        help="Path to the memory profile log file to upload")
-    parser.add_argument("data_archive_file_path", metavar="data-archive-file-path",
-                        help="Path to the data archive file to upload")
 
     args = parser.parse_args()
 
@@ -44,8 +40,6 @@ if __name__ == "__main__":
     production_csv_input_path = args.production_csv_input_path
     messages_csv_input_path = args.messages_csv_input_path
     individuals_csv_input_path = args.individuals_csv_input_path
-    memory_profile_file_path = args.memory_profile_file_path
-    data_archive_file_path = args.data_archive_file_path
 
     log.info("Loading Pipeline Configuration File...")
     with open(pipeline_configuration_file_path) as f:
@@ -82,19 +76,3 @@ if __name__ == "__main__":
     else:
         log.info("Skipping uploading to Google Drive (because the pipeline configuration json does not contain the key "
                  "'DriveUploadPaths')")
-        
-    memory_profile_upload_location = f"{pipeline_configuration.memory_profile_upload_url_prefix}{run_id}.profile"
-    log.info(f"Uploading the memory profile from {memory_profile_file_path} to "
-             f"{memory_profile_upload_location}...")
-    with open(memory_profile_file_path, "rb") as f:
-        google_cloud_utils.upload_file_to_blob(
-            google_cloud_credentials_file_path, memory_profile_upload_location, f
-        )
-
-    data_archive_upload_location = f"{pipeline_configuration.data_archive_upload_url_prefix}{run_id}.tar.gzip"
-    log.info(f"Uploading the data archive from {data_archive_file_path} to "
-             f"{data_archive_upload_location}...")
-    with open(data_archive_file_path, "rb") as f:
-        google_cloud_utils.upload_file_to_blob(
-            google_cloud_credentials_file_path, data_archive_upload_location, f
-        )
