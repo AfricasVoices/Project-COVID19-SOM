@@ -10,13 +10,16 @@ log = Logger(__name__)
 
 def fetch_latest_modified_file_path(dir_path):
     log_files_list = [file for file in os.listdir(dir_path) if file.endswith(".gzip") or file.endswith(".profile")]
-    paths = [os.path.join(dir_path, basename) for basename in log_files_list]
-    return max(paths, key=os.path.getmtime)
+    log_files_paths = [os.path.join(dir_path, basename) for basename in log_files_list]
+    return max(log_files_paths, key=os.path.getmtime)
 
-def delete_local_files(dir_path):
+def delete_old_log_files(dir_path,latest_modified_log_file_path):
     log_files_list = [file for file in os.listdir(dir_path) if file.endswith(".gzip") or file.endswith(".profile")]
-    for file in log_files_list:
-        os.remove(os.path.join(dir_path, file))
+    log_files_paths = [os.path.join(dir_path, basename) for basename in log_files_list]
+    for file_path in log_files_paths:
+        if file_path == latest_modified_log_file_path:
+            continue
+        os.remove(os.path.join(dir_path, file_path))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Uploads pipeline log files to g-cloud")
@@ -46,22 +49,29 @@ if __name__ == "__main__":
     Logger.set_project_name(pipeline_configuration.pipeline_name)
     log.debug(f"Pipeline name is {pipeline_configuration.pipeline_name}")
 
-    memory_profile_file_path = fetch_latest_modified_file_path(memory_profile_dir_path)
-    memory_profile_upload_location = f"{pipeline_configuration.memory_profile_upload_url_prefix}{os.path.basename(memory_profile_file_path)}"
-    log.info(f"Uploading the memory profile from {memory_profile_file_path} to {memory_profile_upload_location}...")
-    with open(memory_profile_file_path, "rb") as f:
-        google_cloud_utils.upload_file_to_blob(
-            google_cloud_credentials_file_path, memory_profile_upload_location, f
-        )
-    log.warning(f"Deleting memory profile files from local disk")
-    delete_local_files(memory_profile_dir_path)
+    latest_memory_profile_file_path = fetch_latest_modified_file_path(memory_profile_dir_path)
+    latest_data_archive_file_path = fetch_latest_modified_file_path(data_archive_dir_path)
+    try:
+        memory_profile_upload_location = f"{pipeline_configuration.memory_profile_upload_url_prefix}{os.path.basename(latest_memory_profile_file_path)}"
+        log.info(f"Uploading the most recent memory profile from {latest_memory_profile_file_path} to {memory_profile_upload_location}...")
+        with open(latest_memory_profile_file_path, "rb") as f:
+            google_cloud_utils.upload_file_to_blob(
+                google_cloud_credentials_file_path, memory_profile_upload_location, f
+            )
 
-    data_archive_file_path = fetch_latest_modified_file_path(data_archive_dir_path)
-    data_archive_upload_location = f"{pipeline_configuration.data_archive_upload_url_prefix}{os.path.basename(data_archive_file_path)}"
-    log.info(f"Uploading the data archive from {data_archive_file_path} to {data_archive_upload_location}...")
-    with open(data_archive_file_path, "rb") as f:
-        google_cloud_utils.upload_file_to_blob(
-            google_cloud_credentials_file_path, data_archive_upload_location, f
-        )
-    log.warning(f"Deleting data archives files from local disk")
-    delete_local_files(data_archive_dir_path)
+        data_archive_upload_location = f"{pipeline_configuration.data_archive_upload_url_prefix}{os.path.basename(latest_data_archive_file_path)}"
+        log.info(f"Uploading the most recent data archive from {latest_data_archive_file_path} to {data_archive_upload_location}...")
+        with open(latest_data_archive_file_path, "rb") as f:
+            google_cloud_utils.upload_file_to_blob(
+                google_cloud_credentials_file_path, data_archive_upload_location, f
+            )
+        log.warning(f"Deleting old memory profile & data archives files from local disk")
+        delete_old_log_files(memory_profile_dir_path, latest_memory_profile_file_path)
+        delete_old_log_files(data_archive_dir_path, latest_data_archive_file_path)
+
+    except BaseException as ex:
+        log.warning(f"Deleting old memory profile & data archives files from local disk")
+        delete_old_log_files(memory_profile_dir_path, latest_memory_profile_file_path)
+        delete_old_log_files(data_archive_dir_path, latest_data_archive_file_path)
+
+        raise ex
