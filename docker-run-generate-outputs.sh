@@ -114,17 +114,5 @@ echo "Copying $container_short_id:/data/output-individuals.csv -> $OUTPUT_INDIVI
 mkdir -p "$(dirname "$OUTPUT_INDIVIDUALS_CSV")"
 docker cp "$container:/data/output-individuals.csv" "$OUTPUT_INDIVIDUALS_CSV"
 
-if [[ "$PROFILE_CPU" = true ]]; then
-    echo "Copying $container_short_id:/data/cpu.prof -> $CPU_PROFILE_OUTPUT_PATH"
-    mkdir -p "$(dirname "$CPU_PROFILE_OUTPUT_PATH")"
-    docker cp "$container:/data/cpu.prof" "$CPU_PROFILE_OUTPUT_PATH"
-fi
-
-if [[ "$PROFILE_MEMORY" = true ]]; then
-    echo "Copying $container_short_id:/data/memory.prof -> $MEMORY_PROFILE_OUTPUT_PATH"
-    mkdir -p "$(dirname "$MEMORY_PROFILE_OUTPUT_PATH")"
-    docker cp "$container:/data/memory.prof" "$MEMORY_PROFILE_OUTPUT_PATH"
-fi
-
 # Tear down the container, now that all expected output files have been copied out successfully
 docker container rm "$container" >/dev/null
