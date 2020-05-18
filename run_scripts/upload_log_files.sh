@@ -12,6 +12,6 @@ cd ..
 while true; do
     pipenv run python upload_log_files.py "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION_FILE_PATH" \
            "$MEMORY_PROFILE_DIR" "$DATA_ARCHIVE_DIR"
-    echo "sleeping for 24 hours"
-    sleep 24h
+    echo "sleeping for 4 hours"
+    sleep 4h
 done
