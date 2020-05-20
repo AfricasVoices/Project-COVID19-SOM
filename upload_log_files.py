@@ -96,7 +96,7 @@ if __name__ == "__main__":
 
     latest_memory_log_file_path = fetch_latest_modified_file_path(memory_profile_dir_path)
     memory_profile_upload_location = f"{pipeline_configuration.memory_profile_upload_bucket}/" \
-        f"{pipeline_configuration.log_dir_path}{os.path.basename(latest_memory_log_file_path)}"
+        f"{pipeline_configuration.log_dir_path}/{os.path.basename(latest_memory_log_file_path)}"
     for file in fetch_file_paths(memory_profile_dir_path):
         file_date_match = re.search(date_pattern, file)
         file_date = file_date_match.group()
