@@ -44,7 +44,7 @@ def list_blobs(bucket_url, prefix, bucket_credentials_file_path):
 
 def get_uploaded_log_dates(uploaded_log_list, date_pattern):
 
-    dates_match =[re.search(date_pattern, file) for file in  uploaded_log_list]
+    dates_match = [re.search(date_pattern, file) for file in uploaded_log_list]
     uploaded_log_dates = []
     for date_match in dates_match:
         if date_match == None:
