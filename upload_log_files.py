@@ -83,7 +83,7 @@ if __name__ == "__main__":
     Logger.set_project_name(pipeline_configuration.pipeline_name)
     log.debug(f"Pipeline name is {pipeline_configuration.pipeline_name}")
 
-    log.warning(f"Deleting old memory profile & data archives files from local disk")
+    log.warning(f"Deleting old memory profile & data archives files from local disk...")
     delete_old_log_files(memory_profile_dir_path, fetch_latest_modified_file_path(memory_profile_dir_path))
     delete_old_log_files(data_archive_dir_path, fetch_latest_modified_file_path(data_archive_dir_path))
 
