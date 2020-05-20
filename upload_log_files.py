@@ -13,6 +13,8 @@ log = Logger(__name__)
 
 
 def get_file_paths(dir_path):
+
+    #search for .gzip (data archive) and .profile (memory profile) files only since os.listdir(dir_path) returns all files in the directory
     log_files_list = [file for file in os.listdir(dir_path) if file.endswith((".gzip", ".profile"))]
     log_file_paths = [os.path.join(dir_path, basename) for basename in log_files_list]
 
