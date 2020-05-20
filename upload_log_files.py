@@ -12,23 +12,24 @@ from src.lib import PipelineConfiguration
 log = Logger(__name__)
 
 
-def fetch_file_paths(dir_path):
+def get_file_paths(dir_path):
     log_files_list = [file for file in os.listdir(dir_path) if file.endswith((".gzip", ".profile"))]
     log_file_paths = [os.path.join(dir_path, basename) for basename in log_files_list]
 
     return log_file_paths
 
 def fetch_latest_modified_file_path(dir_path):
-    log_file_paths = fetch_file_paths(dir_path)
+    log_file_paths = get_file_paths(dir_path)
     latest_modified_log_file = max(log_file_paths, key=os.path.getmtime)
 
     return latest_modified_log_file
 
 def delete_old_log_files(dir_path, latest_modified_log_file_path):
-    log_files_paths = fetch_file_paths(dir_path)
+    log_files_paths = get_file_paths(dir_path)
     for file_path in log_files_paths:
-        if file_path == latest_modified_log_file_path:
+        if os.path.getmtime(file_path) > os.path.getmtime(latest_modified_log_file_path):
             continue
+        log.info(f"Deleting {file_path}")
         os.remove(os.path.join(dir_path, file_path))
 
 # TODO: Move to google_cloud_utils once the upload strategy is has been reviewed
@@ -97,23 +98,24 @@ if __name__ == "__main__":
     latest_memory_log_file_path = fetch_latest_modified_file_path(memory_profile_dir_path)
     memory_profile_upload_location = f"{pipeline_configuration.memory_profile_upload_bucket}/" \
         f"{pipeline_configuration.log_dir_path}/{os.path.basename(latest_memory_log_file_path)}"
-    for file in fetch_file_paths(memory_profile_dir_path):
+    for file in get_file_paths(memory_profile_dir_path):
         file_date_match = re.search(date_pattern, file)
         file_date = file_date_match.group()
         if file_date in uploaded_memory_log_dates:
-            log.info('Memory profile file uploaded today, skipping...')
+            log.info(f"Memory profile file already uploaded for {file_date}, skipping...")
         else:
             log.info(f"Uploading memory profile from {latest_memory_log_file_path} to {memory_profile_upload_location}...")
             with open(latest_memory_log_file_path, "rb") as f:
                 google_cloud_utils.upload_file_to_blob(google_cloud_credentials_file_path, memory_profile_upload_location, f)
 
     latest_data_archive_file = fetch_latest_modified_file_path(data_archive_dir_path)
-    data_archive_upload_location = f"{pipeline_configuration.data_archive_upload_bucket}/{os.path.basename(latest_data_archive_file)}"
-    for file in fetch_file_paths(data_archive_dir_path):
+    data_archive_upload_location = f"{pipeline_configuration.data_archive_upload_bucket}/" \
+        f"{os.path.basename(latest_data_archive_file)}"
+    for file in get_file_paths(data_archive_dir_path):
         file_date_match = re.search(date_pattern, file)
         file_date = file_date_match.group()
         if file_date in uploaded_data_archives:
-            log.info('Data Archive file uploaded today, skipping...')
+            log.info(f"Data archive file already uploaded for {file_date}, skipping...")
         else:
             log.info(
                 f"Uploading data archive from {latest_data_archive_file} to {data_archive_upload_location}...")
