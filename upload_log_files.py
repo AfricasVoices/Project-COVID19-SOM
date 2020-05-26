@@ -111,29 +111,29 @@ if __name__ == "__main__":
     log.warning(f"Deleting old data archives files from local disk...")
     delete_old_log_files(data_archive_dir_path, uploaded_data_archives_dates)
 
-    latest_memory_log_file_path = fetch_latest_modified_file_path(memory_profile_dir_path)
-    memory_profile_upload_location = f"{pipeline_configuration.memory_profile_upload_bucket}/" \
-        f"{pipeline_configuration.bucket_dir_path}/{os.path.basename(latest_memory_log_file_path)}"
     for file in get_file_paths(memory_profile_dir_path):
         file_date_match = re.search(date_pattern, file)
         file_date = file_date_match.group()
         if file_date in uploaded_memory_log_dates:
             log.info(f"Memory profile file already uploaded for {file_date}, skipping...")
         else:
+            latest_memory_log_file_path = fetch_latest_modified_file_path(memory_profile_dir_path)
+            memory_profile_upload_location = f"{pipeline_configuration.memory_profile_upload_bucket}/" \
+                f"{pipeline_configuration.bucket_dir_path}/{os.path.basename(latest_memory_log_file_path)}"
             log.info(f"Uploading memory profile from {latest_memory_log_file_path} to {memory_profile_upload_location}...")
             with open(latest_memory_log_file_path, "rb") as f:
                 google_cloud_utils.upload_file_to_blob(google_cloud_credentials_file_path, memory_profile_upload_location, f)
 
-    latest_data_archive_file = fetch_latest_modified_file_path(data_archive_dir_path)
-    data_archive_upload_location = f"{pipeline_configuration.data_archive_upload_bucket}/" \
-        f"{pipeline_configuration.bucket_dir_path}/{os.path.basename(latest_data_archive_file)}"
+
     for file in get_file_paths(data_archive_dir_path):
         file_date_match = re.search(date_pattern, file)
         file_date = file_date_match.group()
         if file_date in uploaded_data_archives:
             log.info(f"Data archive file already uploaded for {file_date}, skipping...")
         else:
-            log.info(
-                f"Uploading data archive from {latest_data_archive_file} to {data_archive_upload_location}...")
+            latest_data_archive_file = fetch_latest_modified_file_path(data_archive_dir_path)
+            data_archive_upload_location = f"{pipeline_configuration.data_archive_upload_bucket}/" \
+                f"{pipeline_configuration.bucket_dir_path}/{os.path.basename(latest_data_archive_file)}"
+            log.info(f"Uploading data archive from {latest_data_archive_file} to {data_archive_upload_location}...")
             with open(latest_data_archive_file, "rb") as f:
                 google_cloud_utils.upload_file_to_blob(google_cloud_credentials_file_path, data_archive_upload_location, f)
