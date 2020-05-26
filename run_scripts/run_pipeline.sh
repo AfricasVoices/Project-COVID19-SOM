@@ -41,3 +41,5 @@ echo "Starting run with id '$RUN_ID'"
 ./6_backup_data_root.sh "$DATA_ROOT" "$DATA_BACKUPS_DIR/data-$RUN_ID.tar.gzip"
 
 ./7_upload_analysis_files.sh "$USER" "$AVF_BUCKET_CREDENTIALS_PATH" "$PIPELINE_CONFIGURATION" "$RUN_ID" "$DATA_ROOT"
+
+./8_upload_log_files.sh "$USER" "$AVF_BUCKET_CREDENTIALS_PATH" "$PIPELINE_CONFIGURATION" "$PERFORMANCE_LOGS_DIR" "$DATA_BACKUPS_DIR"
