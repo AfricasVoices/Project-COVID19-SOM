@@ -1,7 +1,5 @@
 import argparse
 import os
-from google.cloud import storage
-from urllib.parse import urlparse
 import re
 
 from core_data_modules.logging import Logger
@@ -13,8 +11,8 @@ log = Logger(__name__)
 
 
 def get_file_paths(dir_path):
-
-    #search for .gzip (data archive) and .profile (memory profile) files only since os.listdir(dir_path) returns all files in the directory
+    # search for .gzip (data archive) and .profile (memory profile) files only because os.listdir(dir_path)
+    # returns all files in the directory
     log_files_list = [file for file in os.listdir(dir_path) if file.endswith((".gzip", ".profile"))]
     log_file_paths = [os.path.join(dir_path, basename) for basename in log_files_list]
 
@@ -26,24 +24,37 @@ def fetch_latest_modified_file_path(dir_path):
 
     return latest_modified_log_file
 
-def delete_old_log_files(dir_path, latest_modified_log_file_path):
+def delete_old_log_files(dir_path, uploaded_file_dates):
     log_files_paths = get_file_paths(dir_path)
+    files_for_days_that_upload_failed = {}
+
     for file_path in log_files_paths:
-        if os.path.getmtime(file_path) > os.path.getmtime(latest_modified_log_file_path):
-            continue
-        log.info(f"Deleting {file_path}")
-        os.remove(os.path.join(dir_path, file_path))
+        file_date_match = re.search(date_pattern, file_path)
+        file_date = file_date_match.group()
 
-# TODO: Move to google_cloud_utils once the upload strategy is has been reviewed
-def list_blobs(bucket_url, prefix, bucket_credentials_file_path):
+        # Delete files for days that have a file uploaded in g-cloud
+        if file_date in uploaded_file_dates:
+            log.info(f"Deleting {file_path} because files for {file_date} already uploaded to drive")
+            os.remove(os.path.join(dir_path, file_path))
 
-    storage_client = storage.Client.from_service_account_json(bucket_credentials_file_path)
-    parsed_bucket_url = urlparse(bucket_url)
-    bucket_name = parsed_bucket_url.netloc
-    blobs = storage_client.list_blobs(bucket_name, prefix=prefix)
-    blob_names = [blob.name for blob in blobs]
+        # Create a list of files for days that latest modified file failed to upload
+        else:
+            if file_date in files_for_days_that_upload_failed:
+                files_for_days_that_upload_failed[file_date].append(file_path)
+            else:
+                files_for_days_that_upload_failed[file_date] = []
+                files_for_days_that_upload_failed[file_date].append(file_path)
 
-    return blob_names
+    for file_date in files_for_days_that_upload_failed:
+        # Check for latest modified file path for each day that failed to upload
+        latest_modified_file_path = max(files_for_days_that_upload_failed[file_date], key=os.path.getmtime)
+
+        # Delete other files for that date
+        for file_path in files_for_days_that_upload_failed[file_date]:
+            if file_path == latest_modified_file_path:
+                continue
+            log.info(f"Deleting {file_path}")
+            os.remove(os.path.join(dir_path, file_path))
 
 def get_uploaded_log_dates(uploaded_log_list, date_pattern):
 
@@ -86,20 +97,23 @@ if __name__ == "__main__":
     Logger.set_project_name(pipeline_configuration.pipeline_name)
     log.debug(f"Pipeline name is {pipeline_configuration.pipeline_name}")
 
-    log.warning(f"Deleting old memory profile & data archives files from local disk...")
-    delete_old_log_files(memory_profile_dir_path, fetch_latest_modified_file_path(memory_profile_dir_path))
-    delete_old_log_files(data_archive_dir_path, fetch_latest_modified_file_path(data_archive_dir_path))
-
-    uploaded_memory_logs = list_blobs(pipeline_configuration.memory_profile_upload_bucket,
-                                      pipeline_configuration.log_dir_path, google_cloud_credentials_file_path)
+    uploaded_memory_logs = google_cloud_utils.list_blobs(google_cloud_credentials_file_path,
+                                                         pipeline_configuration.memory_profile_upload_bucket,
+                                                         pipeline_configuration.bucket_dir_path, )
     uploaded_memory_log_dates = get_uploaded_log_dates(uploaded_memory_logs, date_pattern)
-    uploaded_data_archives = list_blobs(pipeline_configuration.memory_profile_upload_bucket,
-                                        pipeline_configuration.log_dir_path, google_cloud_credentials_file_path)
+    uploaded_data_archives = google_cloud_utils.list_blobs(google_cloud_credentials_file_path,
+                                                           pipeline_configuration.memory_profile_upload_bucket,
+                                                           pipeline_configuration.bucket_dir_path)
     uploaded_data_archives_dates = get_uploaded_log_dates(uploaded_data_archives, date_pattern)
+
+    log.warning(f"Deleting old memory profile files from local disk...")
+    delete_old_log_files(memory_profile_dir_path, uploaded_memory_log_dates)
+    log.warning(f"Deleting old data archives files from local disk...")
+    delete_old_log_files(data_archive_dir_path, uploaded_data_archives_dates)
 
     latest_memory_log_file_path = fetch_latest_modified_file_path(memory_profile_dir_path)
     memory_profile_upload_location = f"{pipeline_configuration.memory_profile_upload_bucket}/" \
-        f"{pipeline_configuration.log_dir_path}/{os.path.basename(latest_memory_log_file_path)}"
+        f"{pipeline_configuration.bucket_dir_path}/{os.path.basename(latest_memory_log_file_path)}"
     for file in get_file_paths(memory_profile_dir_path):
         file_date_match = re.search(date_pattern, file)
         file_date = file_date_match.group()
@@ -112,7 +126,7 @@ if __name__ == "__main__":
 
     latest_data_archive_file = fetch_latest_modified_file_path(data_archive_dir_path)
     data_archive_upload_location = f"{pipeline_configuration.data_archive_upload_bucket}/" \
-        f"{os.path.basename(latest_data_archive_file)}"
+        f"{pipeline_configuration.bucket_dir_path}/{os.path.basename(latest_data_archive_file)}"
     for file in get_file_paths(data_archive_dir_path):
         file_date_match = re.search(date_pattern, file)
         file_date = file_date_match.group()
