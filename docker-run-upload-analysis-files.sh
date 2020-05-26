@@ -26,7 +26,7 @@ INPUT_INDIVIDUALS_CSV=$7
 docker build -t "$IMAGE_NAME" .
 
 # Create a container from the image that was just built.
-CMD="pipenv run python -u upload_files.py \
+CMD="pipenv run python -u upload_analysis_files.py \
     \"$USER\" /credentials/google-cloud-credentials.json /data/pipeline_configuration.json \"$RUN_ID\" \
     /data/production.csv /data/messages.csv /data/individuals.csv
 "
