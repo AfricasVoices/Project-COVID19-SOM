@@ -18,7 +18,7 @@ def get_file_paths(dir_path):
 
     return log_file_paths
 
-def fetch_latest_modified_file_path(dir_path):
+def get_latest_modified_file_path(dir_path):
     log_file_paths = get_file_paths(dir_path)
     latest_modified_log_file = max(log_file_paths, key=os.path.getmtime)
 
@@ -27,10 +27,15 @@ def fetch_latest_modified_file_path(dir_path):
 def delete_old_log_files(dir_path, uploaded_file_dates):
     log_files_paths = get_file_paths(dir_path)
     files_for_days_that_upload_failed = {}
+    latest_modified_file_path = get_latest_modified_file_path(dir_path)
 
     for file_path in log_files_paths:
         file_date_match = re.search(date_pattern, file_path)
         file_date = file_date_match.group()
+
+        # Retain the latest modified file locally
+        if file_path == latest_modified_file_path:
+            continue
 
         # Delete files for days that have a file uploaded in g-cloud
         if file_date in uploaded_file_dates:
@@ -39,11 +44,10 @@ def delete_old_log_files(dir_path, uploaded_file_dates):
 
         # Create a list of files for days that latest modified file failed to upload
         else:
-            if file_date in files_for_days_that_upload_failed:
-                files_for_days_that_upload_failed[file_date].append(file_path)
-            else:
+            if file_date not in files_for_days_that_upload_failed:
                 files_for_days_that_upload_failed[file_date] = []
-                files_for_days_that_upload_failed[file_date].append(file_path)
+
+            files_for_days_that_upload_failed[file_date].append(file_path)
 
     for file_date in files_for_days_that_upload_failed:
         # Check for latest modified file path for each day that failed to upload
@@ -57,7 +61,6 @@ def delete_old_log_files(dir_path, uploaded_file_dates):
             os.remove(os.path.join(dir_path, file_path))
 
 def get_uploaded_log_dates(uploaded_log_list, date_pattern):
-
     dates_match = [re.search(date_pattern, file) for file in uploaded_log_list]
     uploaded_log_dates = []
     for date_match in dates_match:
@@ -117,7 +120,7 @@ if __name__ == "__main__":
         if file_date in uploaded_memory_log_dates:
             log.info(f"Memory profile file already uploaded for {file_date}, skipping...")
         else:
-            latest_memory_log_file_path = fetch_latest_modified_file_path(memory_profile_dir_path)
+            latest_memory_log_file_path = get_latest_modified_file_path(memory_profile_dir_path)
             memory_profile_upload_location = f"{pipeline_configuration.memory_profile_upload_bucket}/" \
                 f"{pipeline_configuration.bucket_dir_path}/{os.path.basename(latest_memory_log_file_path)}"
             log.info(f"Uploading memory profile from {latest_memory_log_file_path} to {memory_profile_upload_location}...")
@@ -125,13 +128,13 @@ if __name__ == "__main__":
                 google_cloud_utils.upload_file_to_blob(google_cloud_credentials_file_path, memory_profile_upload_location, f)
 
 
-    for file in get_file_paths(data_archive_dir_path):
-        file_date_match = re.search(date_pattern, file)
+    for file_path in get_file_paths(data_archive_dir_path):
+        file_date_match = re.search(date_pattern, file_path)
         file_date = file_date_match.group()
         if file_date in uploaded_data_archives:
-            log.info(f"Data archive file already uploaded for {file_date}, skipping...")
+            log.info(f"Data archive file already uploaded for {file_date}, skipping uploading {file_path}...")
         else:
-            latest_data_archive_file = fetch_latest_modified_file_path(data_archive_dir_path)
+            latest_data_archive_file = get_latest_modified_file_path(data_archive_dir_path)
             data_archive_upload_location = f"{pipeline_configuration.data_archive_upload_bucket}/" \
                 f"{pipeline_configuration.bucket_dir_path}/{os.path.basename(latest_data_archive_file)}"
             log.info(f"Uploading data archive from {latest_data_archive_file} to {data_archive_upload_location}...")
