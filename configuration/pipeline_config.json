@@ -57,6 +57,7 @@
     "IndividualsUploadPath": "covid19_som_analysis_outputs/covid19_som_individuals.csv",
     "AnalysisGraphsDir": "covid19_som_analysis_outputs/covid19_som_automated_analysis"
   },
-  "MemoryProfileUploadURLPrefix": "gs://avf-pipeline-logs-performance-nearline/2020/COVID19_SOM/memory-",
-  "DataArchiveUploadURLPrefix": "gs://pipeline-execution-backup-archive/2020/COVID19_SOM/data-"
+  "MemoryProfileUploadBucket":"gs://avf-pipeline-logs-performance-nearline",
+  "DataArchiveUploadBucket": "gs://pipeline-execution-backup-archive",
+  "BucketDirPath": "2020/COVID19_SOM/"
 }

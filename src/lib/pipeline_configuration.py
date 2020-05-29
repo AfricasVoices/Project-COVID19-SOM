@@ -226,7 +226,7 @@ class PipelineConfiguration(object):
 
     def __init__(self, pipeline_name, raw_data_sources, phone_number_uuid_table, timestamp_remappings,
                  rapid_pro_key_remappings, project_start_date, project_end_date, filter_test_messages, move_ws_messages,
-                 memory_profile_upload_url_prefix, data_archive_upload_url_prefix, drive_upload=None):
+                 memory_profile_upload_bucket, data_archive_upload_bucket, bucket_dir_path, drive_upload=None):
         """
         :param pipeline_name: The name of this pipeline.
         :type pipeline_name: str
@@ -246,10 +246,16 @@ class PipelineConfiguration(object):
         :type filter_test_messages: bool
         :param move_ws_messages: Whether to move messages labelled as Wrong Scheme to the correct dataset.
         :type move_ws_messages: bool
-        :param memory_profile_upload_url_prefix: The prefix of the GS URL to upload the memory profile log to.
-                                                 This prefix will be appended by the id of the pipeline run (provided
-                                                 as a command line argument), and the ".profile" file extension.
-        :type memory_profile_upload_url_prefix: str
+        :param memory_profile_upload_bucket: The GS bucket name to upload the memory profile log to.
+                                              This name will be appended with the log_dir_path
+                                              and the file basename to generate the log upload location.
+        :type memory_profile_upload_bucket: str
+        :param data_archive_upload_bucket: The GS bucket name to upload the data archive file to.
+                                            This name will be appended with the log_dir_path
+                                            and the file basename to generate the archive upload location.
+        :type data_archive_upload_bucket: str
+        :param bucket_dir_path: The GS bucket folder path to store the data archive & memory log files to.
+        :type bucket_dir_path: str
         :param drive_upload: Configuration for uploading to Google Drive, or None.
                              If None, does not upload to Google Drive.
         :type drive_upload: DriveUploadPaths | None
@@ -264,8 +270,9 @@ class PipelineConfiguration(object):
         self.filter_test_messages = filter_test_messages
         self.move_ws_messages = move_ws_messages
         self.drive_upload = drive_upload
-        self.memory_profile_upload_url_prefix = memory_profile_upload_url_prefix
-        self.data_archive_upload_url_prefix = data_archive_upload_url_prefix
+        self.memory_profile_upload_bucket = memory_profile_upload_bucket
+        self.data_archive_upload_bucket = data_archive_upload_bucket
+        self.bucket_dir_path = bucket_dir_path
 
         self.validate()
 
@@ -306,12 +313,13 @@ class PipelineConfiguration(object):
         if "DriveUpload" in configuration_dict:
             drive_upload_paths = DriveUpload.from_configuration_dict(configuration_dict["DriveUpload"])
 
-        memory_profile_upload_url_prefix = configuration_dict["MemoryProfileUploadURLPrefix"]
-        data_archive_upload_url_prefix = configuration_dict["DataArchiveUploadURLPrefix"]
+        memory_profile_upload_bucket = configuration_dict["MemoryProfileUploadBucket"]
+        data_archive_upload_bucket = configuration_dict["DataArchiveUploadBucket"]
+        bucket_dir_path = configuration_dict["BucketDirPath"]
 
         return cls(pipeline_name, raw_data_sources, phone_number_uuid_table, timestamp_remappings,
                    rapid_pro_key_remappings, project_start_date, project_end_date, filter_test_messages,
-                   move_ws_messages, memory_profile_upload_url_prefix, data_archive_upload_url_prefix,
+                   move_ws_messages, memory_profile_upload_bucket, data_archive_upload_bucket, bucket_dir_path,
                    drive_upload_paths)
 
     @classmethod
@@ -346,8 +354,8 @@ class PipelineConfiguration(object):
                 "drive_upload is not of type DriveUpload"
             self.drive_upload.validate()
 
-        validators.validate_string(self.memory_profile_upload_url_prefix, "memory_profile_upload_url_prefix")
-
+        memory_profile_upload_url_prefix = f"{self.memory_profile_upload_bucket}{self.bucket_dir_path}"
+        validators.validate_string(memory_profile_upload_url_prefix, "memory_profile_upload_url_prefix")
 
 class RawDataSource(ABC):
     @abstractmethod
